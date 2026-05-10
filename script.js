@@ -6,17 +6,43 @@
 
 // ── State ────────────────────────────────────
 let currentIndex = 0;
-let isAnimating = false;
-let touchStartX = 0;
-let touchStartY = 0;
+let isAnimating  = false;
+let touchStartX  = 0;
+let touchStartY  = 0;
 
 // ── DOM refs ─────────────────────────────────
-const slides        = Array.from(document.querySelectorAll('.slide'));
-const totalEl       = document.getElementById('totalSlides');
-const currentEl     = document.getElementById('currentSlide');
-const progressBar   = document.getElementById('progressBar');
-const prevBtn       = document.getElementById('prevBtn');
-const nextBtn       = document.getElementById('nextBtn');
+const slides      = Array.from(document.querySelectorAll('.slide'));
+const totalEl     = document.getElementById('totalSlides');
+const currentEl   = document.getElementById('currentSlide');
+const progressBar = document.getElementById('progressBar');
+const prevBtn     = document.getElementById('prevBtn');
+const nextBtn     = document.getElementById('nextBtn');
+
+// ── Step state per slide ──────────────────────
+// stepState[slideIndex] = current step index (0-based)
+const stepState = slides.map(() => 0);
+
+function getStepCount(slideEl) {
+  return parseInt(slideEl.dataset.steps || '1', 10);
+}
+
+function getStepEls(slideEl) {
+  return Array.from(slideEl.querySelectorAll('.reveal-step'));
+}
+
+function showStep(slideEl, stepIndex) {
+  const stepEls = getStepEls(slideEl);
+  if (!stepEls.length) return;
+  stepEls.forEach((el, i) => {
+    el.classList.toggle('active-step', i === stepIndex);
+  });
+}
+
+function resetSteps(slideEl) {
+  const i = slides.indexOf(slideEl);
+  stepState[i] = 0;
+  showStep(slideEl, 0);
+}
 
 // ── Init ─────────────────────────────────────
 function init() {
@@ -36,14 +62,13 @@ function goTo(index, direction = 'next') {
   const prev = slides[currentIndex];
   const next = slides[index];
 
-  // Remove all state classes
-  slides.forEach(s => s.classList.remove('active', 'prev'));
+  // Reset steps on the slide we're leaving (going forward)
+  // Reset the target slide's steps to 0 always
+  resetSteps(next);
 
-  // Activate
+  slides.forEach(s => s.classList.remove('active', 'prev'));
   next.classList.add('active');
-  if (direction !== 'none') {
-    prev.classList.add('prev');
-  }
+  if (direction !== 'none') prev.classList.add('prev');
 
   currentIndex = index;
   updateHUD();
@@ -55,42 +80,58 @@ function goTo(index, direction = 'next') {
   }, 550);
 }
 
+// Advance a step within the current slide, or move to next slide
 function nextSlide() {
-  if (currentIndex < slides.length - 1) goTo(currentIndex + 1, 'next');
+  const slide = slides[currentIndex];
+  const totalSteps = getStepCount(slide);
+  const cur = stepState[currentIndex];
+
+  if (cur < totalSteps - 1) {
+    // Advance within the slide
+    stepState[currentIndex]++;
+    showStep(slide, stepState[currentIndex]);
+    updateControls();
+  } else if (currentIndex < slides.length - 1) {
+    goTo(currentIndex + 1, 'next');
+  }
 }
 
+// Go back a step within the current slide, or move to previous slide
 function prevSlide() {
-  if (currentIndex > 0) goTo(currentIndex - 1, 'prev');
+  const slide = slides[currentIndex];
+  const cur = stepState[currentIndex];
+
+  if (cur > 0) {
+    stepState[currentIndex]--;
+    showStep(slide, stepState[currentIndex]);
+    updateControls();
+  } else if (currentIndex > 0) {
+    goTo(currentIndex - 1, 'prev');
+  }
 }
 
 // ── HUD Update ───────────────────────────────
 function updateHUD() {
   currentEl.textContent = currentIndex + 1;
-
   const progress = ((currentIndex + 1) / slides.length) * 100;
   progressBar.style.width = progress + '%';
-
   document.title = `Slide ${currentIndex + 1}/${slides.length} — AI-Driven Development`;
 }
 
 function updateControls() {
-  prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = currentIndex === slides.length - 1;
+  const atStart = currentIndex === 0 && stepState[currentIndex] === 0;
+  const atEnd   = currentIndex === slides.length - 1 &&
+                  stepState[currentIndex] === getStepCount(slides[currentIndex]) - 1;
+  prevBtn.disabled = atStart;
+  nextBtn.disabled = atEnd;
 }
 
 // ── Events ───────────────────────────────────
 function attachEvents() {
-  // Keyboard
   document.addEventListener('keydown', onKeyDown);
-
-  // Mouse wheel (debounced)
   document.addEventListener('wheel', debounce(onWheel, 80), { passive: true });
-
-  // Touch
   document.addEventListener('touchstart', onTouchStart, { passive: true });
   document.addEventListener('touchend', onTouchEnd, { passive: true });
-
-  // Click zones (click right half = next, left half = prev)
   document.getElementById('slidesContainer').addEventListener('click', onContainerClick);
 }
 
@@ -146,7 +187,6 @@ function onTouchEnd(e) {
 }
 
 function onContainerClick(e) {
-  // Ignore clicks on nav buttons, interactive elements, or code blocks
   if (e.target.closest('button, a, pre, .code-block, .nav-controls, .slide-map')) return;
   const x = e.clientX / window.innerWidth;
   if (x > 0.65) nextSlide();
@@ -164,7 +204,6 @@ function toggleFullscreen() {
 
 // ── Slide Map Toggle ─────────────────────────
 function toggleSlideMap() {
-  // Simple: jump to a prompted slide number
   const num = parseInt(prompt(`Go to slide (1–${slides.length}):`));
   if (!isNaN(num) && num >= 1 && num <= slides.length) {
     const dir = num - 1 > currentIndex ? 'next' : 'prev';
@@ -180,53 +219,6 @@ function debounce(fn, wait) {
     timer = setTimeout(() => fn.apply(this, args), wait);
   };
 }
-
-// ── Context Diagram Lines ────────────────────
-// Draw SVG connector lines between the center and each pill
-function drawContextLines() {
-  const diagram = document.querySelector('.context-diagram');
-  if (!diagram) return;
-
-  const core = diagram.querySelector('.ctx-core');
-  if (!core) return;
-
-  let svg = diagram.querySelector('.ctx-svg-lines');
-  if (!svg) {
-    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.classList.add('ctx-svg-lines');
-    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;';
-    diagram.appendChild(svg);
-  }
-
-  svg.innerHTML = '';
-
-  const dRect = diagram.getBoundingClientRect();
-  const cRect = core.getBoundingClientRect();
-  const cx = cRect.left - dRect.left + cRect.width / 2;
-  const cy = cRect.top - dRect.top + cRect.height / 2;
-
-  const pills = diagram.querySelectorAll('.ctx-pill');
-  const colors = ['#4285F4','#EA4335','#FBBC04','#34A853','#4285F4','#EA4335'];
-
-  pills.forEach((pill, i) => {
-    const pRect = pill.getBoundingClientRect();
-    const px = pRect.left - dRect.left + pRect.width / 2;
-    const py = pRect.top - dRect.top + pRect.height / 2;
-
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', cx);
-    line.setAttribute('y1', cy);
-    line.setAttribute('x2', px);
-    line.setAttribute('y2', py);
-    line.setAttribute('stroke', colors[i]);
-    line.setAttribute('stroke-width', '1.5');
-    line.setAttribute('stroke-opacity', '0.25');
-    line.setAttribute('stroke-dasharray', '4 4');
-    svg.appendChild(line);
-  });
-}
-
-// Context diagram observer (slide-8 removed from deck)
 
 // ── Start ─────────────────────────────────────
 init();
