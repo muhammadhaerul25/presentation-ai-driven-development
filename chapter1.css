@@ -47,7 +47,7 @@ html, body {
    PROGRESS BAR
    ============================================= */
 .progress-bar {
-  position: fixed; top: 0; left: 0;
+  position: absolute; top: 0; left: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--blue), var(--green));
   z-index: 1000;
@@ -59,7 +59,7 @@ html, body {
    SLIDE COUNTER
    ============================================= */
 .slide-counter {
-  position: fixed;
+  position: absolute;
   bottom: 28px; left: 50%;
   transform: translateX(-50%);
   z-index: 100;
@@ -89,7 +89,7 @@ html, body {
    NAV CONTROLS
    ============================================= */
 .nav-controls {
-  position: fixed;
+  position: absolute;
   bottom: 28px; right: 28px;
   z-index: 100;
   display: flex;
@@ -116,7 +116,7 @@ html, body {
    FULLSCREEN BUTTON
    ============================================= */
 .fullscreen-btn {
-  position: fixed;
+  position: absolute;
   bottom: 28px; left: 28px;
   z-index: 100;
   width: 40px; height: 40px;
@@ -134,11 +134,25 @@ html, body {
 .fullscreen-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
 
 /* =============================================
+   SLIDE SCALER — FIXED 16:9 ASPECT RATIO
+   ============================================= */
+.slide-scaler {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: top left;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* =============================================
    SLIDES CONTAINER
    ============================================= */
 .slides-container {
-  width: 100vw;
-  height: 100vh;
+  width: 1920px;
+  height: 1080px;
   position: relative;
   overflow: hidden;
 }
@@ -293,7 +307,7 @@ html, body {
 
 .cc-title {
   font-family: var(--font-display);
-  font-size: clamp(38px, 5.5vw, 68px);
+  font-size: 68px;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.08;
@@ -362,7 +376,7 @@ html, body {
 }
 .evo-title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 3.2vw, 42px);
+  font-size: 42px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -536,7 +550,7 @@ html, body {
 }
 .em-title {
   font-family: var(--font-display);
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: 52px;
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: -0.025em;
@@ -653,7 +667,7 @@ html, body {
 
 .genai-title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 3.5vw, 46px);
+  font-size: 46px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
@@ -768,7 +782,7 @@ html, body {
 
 .wf-title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 3.5vw, 46px);
+  font-size: 46px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
@@ -929,7 +943,7 @@ html, body {
 
 .ag-title {
   font-family: var(--font-display);
-  font-size: clamp(26px, 3.2vw, 42px);
+  font-size: 42px;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.1;
@@ -1093,7 +1107,7 @@ html, body {
 
 .sum-title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 3.8vw, 50px);
+  font-size: 50px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
@@ -1260,7 +1274,7 @@ html, body {
 
 .vibe-title {
   font-family: var(--font-display);
-  font-size: clamp(32px, 4.2vw, 54px);
+  font-size: 54px;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.1;
@@ -1471,7 +1485,7 @@ html, body {
 }
 .who-title {
   font-family: var(--font-display);
-  font-size: clamp(26px, 3.4vw, 44px);
+  font-size: 44px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.025em;
@@ -1662,7 +1676,7 @@ html, body {
 
 .karp-quote {
   font-family: var(--font-display);
-  font-size: clamp(26px, 3.5vw, 46px);
+  font-size: 46px;
   font-weight: 700;
   color: rgba(255,255,255,0.9);
   line-height: 1.25;
@@ -1882,7 +1896,7 @@ html, body {
 
 .skill-answer-title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 3.6vw, 46px);
+  font-size: 46px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.025em;
@@ -1945,6 +1959,14 @@ html, body {
   .cc-bg-num { font-size: 160px; }
 }
 
+/* =============================================\r
+   FULLSCREEN — Hide controls, keep counter\r
+   ============================================= */\r
+:fullscreen .nav-controls,\r
+:fullscreen .fullscreen-btn {\r
+  display: none !important;\r
+}\r
+\r
 @media print {
   .slide { position: relative; opacity: 1 !important; transform: none !important; page-break-after: always; }
   .progress-bar, .slide-counter, .nav-controls, .fullscreen-btn { display: none; }

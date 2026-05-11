@@ -7,8 +7,9 @@
 // ── State ────────────────────────────────────
 let currentIndex = 0;
 let isAnimating  = false;
-let touchStartX  = 0;
-let touchStartY  = 0;
+
+// Storage key for persisting slide position across refreshes
+const STORAGE_KEY = 'slide-pos-index';
 
 // ── DOM refs ─────────────────────────────────
 const slides      = Array.from(document.querySelectorAll('.slide'));
@@ -47,7 +48,12 @@ function resetSteps(slideEl) {
 // ── Init ─────────────────────────────────────
 function init() {
   totalEl.textContent = slides.length;
-  goTo(0, 'none');
+
+  // Restore saved position on refresh
+  const saved = parseInt(sessionStorage.getItem(STORAGE_KEY), 10);
+  const startIndex = (!isNaN(saved) && saved >= 0 && saved < slides.length) ? saved : 0;
+
+  goTo(startIndex, 'none');
   updateControls();
   attachEvents();
 }
@@ -71,6 +77,7 @@ function goTo(index, direction = 'next') {
   if (direction !== 'none') prev.classList.add('prev');
 
   currentIndex = index;
+  sessionStorage.setItem(STORAGE_KEY, index);
   updateHUD();
   updateControls();
 
@@ -130,9 +137,6 @@ function updateControls() {
 function attachEvents() {
   document.addEventListener('keydown', onKeyDown);
   document.addEventListener('wheel', debounce(onWheel, 80), { passive: true });
-  document.addEventListener('touchstart', onTouchStart, { passive: true });
-  document.addEventListener('touchend', onTouchEnd, { passive: true });
-  document.getElementById('slidesContainer').addEventListener('click', onContainerClick);
 }
 
 function onKeyDown(e) {
@@ -173,25 +177,7 @@ function onWheel(e) {
   else prevSlide();
 }
 
-function onTouchStart(e) {
-  touchStartX = e.touches[0].clientX;
-  touchStartY = e.touches[0].clientY;
-}
 
-function onTouchEnd(e) {
-  const dx = touchStartX - e.changedTouches[0].clientX;
-  const dy = touchStartY - e.changedTouches[0].clientY;
-  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-    dx > 0 ? nextSlide() : prevSlide();
-  }
-}
-
-function onContainerClick(e) {
-  if (e.target.closest('button, a, pre, .code-block, .nav-controls, .slide-map')) return;
-  const x = e.clientX / window.innerWidth;
-  if (x > 0.65) nextSlide();
-  else if (x < 0.35) prevSlide();
-}
 
 // ── Fullscreen ───────────────────────────────
 function toggleFullscreen() {

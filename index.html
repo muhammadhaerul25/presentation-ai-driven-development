@@ -11,6 +11,9 @@
 </head>
 <body>
 
+  <!-- Slide Scaler — Fixed 16:9 -->
+  <div class="slide-scaler" id="slideScaler">
+
   <!-- Progress Bar -->
   <div class="progress-bar" id="progressBar"></div>
 
@@ -102,8 +105,8 @@
           </div>
         </div>
         <div class="speaker-divider"></div>
-        <div class="speaker-sections">
-          <div class="speaker-section">
+        <div class="speaker-columns">
+          <div class="speaker-col">
             <h4 class="section-label">Professional Experience</h4>
             <div class="timeline-list">
               <div class="timeline-item">
@@ -138,8 +141,8 @@
               </div>
             </div>
           </div>
-          <div class="speaker-divider"></div>
-          <div class="speaker-section">
+          <div class="speaker-col-divider"></div>
+          <div class="speaker-col">
             <h4 class="section-label">Honors & Awards</h4>
             <div class="awards-list">
               <div class="award-item"><span class="award-medal gold">🥇</span><span>1st Place · Open The Gate Hackathon 2026</span></div>
@@ -426,6 +429,9 @@
     </button>
   </div>
 
+  </div><!-- /slide-scaler -->
+
+  <script src="scaler.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
