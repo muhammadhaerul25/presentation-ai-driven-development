@@ -11,10 +11,8 @@
 </head>
 <body>
 
-  <!-- Progress Bar -->
   <div class="progress-bar" id="progressBar"></div>
 
-  <!-- Slide Counter -->
   <div class="slide-counter" id="slideCounter">
     <span class="counter-chapter">Ch.2</span>
     <span class="divider">·</span>
@@ -23,7 +21,6 @@
     <span id="totalSlides">9</span>
   </div>
 
-  <!-- Navigation Controls -->
   <div class="nav-controls">
     <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -33,18 +30,16 @@
     </button>
   </div>
 
-  <!-- Fullscreen Button -->
   <button class="fullscreen-btn" onclick="toggleFullscreen()">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
   </button>
 
-  <!-- Slides Container -->
   <div class="slides-container" id="slidesContainer">
 
     <!-- ============================
          SLIDE C2-1 — WHAT IS PROMPT & CONTEXT ENGINEERING?
          ============================ -->
-    <section class="slide slide-pce-intro active" id="slide-1">
+<section class="slide slide-pce-intro active" id="slide-1">
       <div class="slide-label">What Is Prompt &amp; Context Engineering?</div>
       <div class="pce-bg">
         <div class="pce-dot-grid"></div>
@@ -70,7 +65,6 @@
               <span class="pce-tag pce-tag-blue">💬 Question</span>
               <span class="pce-tag pce-tag-blue">📋 Instruction</span>
               <span class="pce-tag pce-tag-blue">🚫 Constraint</span>
-              <span class="pce-tag pce-tag-blue">📌 Example</span>
               <span class="pce-tag pce-tag-blue">✅ Task</span>
             </div>
             <div class="pce-eng-block">
@@ -99,7 +93,6 @@
               <span class="pce-tag pce-tag-green">📄 Requirements</span>
               <span class="pce-tag pce-tag-green">🎨 UI/UX Design</span>
               <span class="pce-tag pce-tag-green">💻 Codebase</span>
-              <span class="pce-tag pce-tag-green">⚙️ Config</span>
               <span class="pce-tag pce-tag-green">🐛 Error Logs</span>
             </div>
             <div class="pce-eng-block" style="border-color:rgba(52,168,83,0.15); background:rgba(52,168,83,0.03);">
@@ -110,26 +103,45 @@
 
         </div>
 
-        <!-- Bottom: pipeline diagram -->
-        <div class="pce-pipeline">
-          <div class="pce-pipeline-step pce-pipe-prompt">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Prompt
+        <!-- Improved Pipeline: Input → Process → Output -->
+        <div class="pce-pipeline-v2">
+          <div class="pce-pipe-stage pce-stage-input">
+            <div class="pce-stage-icon" style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="pce-stage-label" style="color:#4285F4;">Prompt</div>
+            <div class="pce-stage-sub">+</div>
+            <div class="pce-stage-icon" style="background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="pce-stage-label" style="color:#34A853;">Context</div>
+            <div class="pce-stage-caption">INPUT</div>
           </div>
-          <div class="pce-pipe-connector">+</div>
-          <div class="pce-pipeline-step pce-pipe-context">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Context
+
+          <div class="pce-pipe-connector">
+            <div class="pce-pipe-line"></div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
-          <div class="pce-pipe-arrow">→</div>
-          <div class="pce-pipeline-step pce-pipe-ai">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            AI (LLM)
+
+          <div class="pce-pipe-stage pce-stage-process">
+            <div class="pce-stage-icon pce-icon-ai" style="background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.3);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="pce-stage-label" style="color:#9A7400;">LLMs</div>
+            <div class="pce-stage-caption">PROCESS</div>
           </div>
-          <div class="pce-pipe-arrow">→</div>
-          <div class="pce-pipeline-step pce-pipe-output">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Output
+
+          <div class="pce-pipe-connector">
+            <div class="pce-pipe-line"></div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+
+          <div class="pce-pipe-stage pce-stage-output">
+            <div class="pce-stage-icon" style="background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="pce-stage-label" style="color:#EA4335;">Output</div>
+            <div class="pce-stage-caption">OUTPUT</div>
           </div>
         </div>
 
@@ -141,61 +153,79 @@
          ============================ -->
     <section class="slide slide-why-matter" id="slide-2">
       <div class="slide-label">Why Does It Matter?</div>
-      <div class="why-bg">
-        <div class="why-grid"></div>
-      </div>
+      <div class="why-bg"><div class="why-grid"></div></div>
       <div class="slide-content why-layout">
 
         <div class="why-header">
           <p class="why-eyebrow">How LLMs Actually Work</p>
-          <h2 class="why-title">Why Does It<br/>Matter?</h2>
+          <h2 class="why-title">Why Does It Matter?</h2>
         </div>
 
         <div class="why-body">
-          <!-- Left: LLM mechanics -->
+          <!-- Left: LLM Token Prediction Illustration -->
           <div class="why-left">
             <div class="why-mech-card">
               <div class="why-mech-header">
                 <div class="why-mech-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <span>LLM Mechanics</span>
+                <span>LLM: Next-Token Prediction</span>
               </div>
+
+              <!-- Interactive Token Prediction Visual -->
+              <div class="llm-token-visual">
+                <div class="llm-token-row">
+                  <div class="llm-token t-done">Artificial</div>
+                  <div class="llm-token t-done">→ Intelligence</div>
+                  <div class="llm-token t-done">→ is</div>
+                  <div class="llm-token t-done">→ the</div>
+                  <div class="llm-token t-done">→ ability</div>
+                  <div class="llm-token t-done">→ of</div>
+                  <div class="llm-token t-done">→ machines</div>
+                  <div class="llm-token t-done">→ to</div>
+                  <div class="llm-token t-predicting" id="predToken">???</div>
+                </div>
+                <div class="llm-pred-bar-group" id="predBars">
+                  <div class="llm-pred-row">
+                    <span class="llm-pred-word">learn</span>
+                    <div class="llm-pred-bar"><div class="llm-pred-fill" style="width:65%; background:#34A853;"></div></div>
+                    <span class="llm-pred-pct">65%</span>
+                  </div>
+                  <div class="llm-pred-row">
+                    <span class="llm-pred-word">reason</span>
+                    <div class="llm-pred-bar"><div class="llm-pred-fill" style="width:22%; background:#FBBC04;"></div></div>
+                    <span class="llm-pred-pct">22%</span>
+                  </div>
+                  <div class="llm-pred-row">
+                    <span class="llm-pred-word">think</span>
+                    <div class="llm-pred-bar"><div class="llm-pred-fill" style="width:13%; background:#EA4335;"></div></div>
+                    <span class="llm-pred-pct">13%</span>
+                  </div>
+                </div>
+                <div class="llm-token-result">
+                  <span class="llm-chosen">✓ Chosen: <strong>"learn"</strong></span>
+                  <span class="llm-loop">→ Repeat for every next token</span>
+                </div>
+              </div>
+
               <div class="why-mech-items">
                 <div class="why-mech-item">
                   <div class="why-mech-num">01</div>
-                  <div>
-                    <strong>Not a database</strong>
-                    <span>LLMs contain billions of parameters encoding patterns — not stored facts</span>
-                  </div>
+                  <div><strong>LLMs are not databases</strong><span>LLMs contain billions of parameters encoding patterns — not stored facts</span></div>
                 </div>
                 <div class="why-mech-item">
                   <div class="why-mech-num">02</div>
-                  <div>
-                    <strong>Token prediction</strong>
-                    <span>Works by predicting the next token based on the prompt and context given</span>
-                  </div>
+                  <div><strong>LLMs predict tokens</strong><span>Works by predicting the most probable next token from the entire context</span></div>
                 </div>
-                <div class="why-mech-item why-mech-steps">
+                <div class="why-mech-item">
                   <div class="why-mech-num">03</div>
-                  <div>
-                    <strong>The loop</strong>
-                    <div class="why-loop">
-                      <span class="why-loop-step">Break into tokens</span>
-                      <span class="why-loop-arrow">→</span>
-                      <span class="why-loop-step">Predict next</span>
-                      <span class="why-loop-arrow">→</span>
-                      <span class="why-loop-step">Append</span>
-                      <span class="why-loop-arrow">→</span>
-                      <span class="why-loop-step why-loop-repeat">Repeat</span>
-                    </div>
-                  </div>
+                  <div><strong>Better input → better output</strong><span>Clear prompts and relevant context reshape the probability distribution toward more accurate outputs</span></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Right: input quality impact -->
+          <!-- Right: quality cards -->
           <div class="why-right">
             <div class="why-quality-card why-quality-good">
               <div class="why-quality-badge why-badge-good">
@@ -225,7 +255,7 @@
               <div class="why-insight-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
               </div>
-              <p>Prompt &amp; Context Engineering is not about tricks — it's about understanding how LLMs process information and structuring input to work with the model's mechanism.</p>
+              <p>Better input → better probability distribution → better predicted tokens → better output. Prompt &amp; Context Engineering shapes that probability distribution.</p>
             </div>
           </div>
         </div>
@@ -238,14 +268,12 @@
          ============================ -->
     <section class="slide slide-techniques" id="slide-3">
       <div class="slide-label">Prompt &amp; Context Engineering Techniques</div>
-      <div class="tech-bg">
-        <div class="tech-dot-grid"></div>
-      </div>
+      <div class="tech-bg"><div class="tech-dot-grid"></div></div>
       <div class="slide-content techniques-layout">
 
         <div class="tech-header">
           <p class="tech-eyebrow">5 Core Techniques</p>
-          <h2 class="tech-title">Prompt &amp; Context<br/>Engineering Techniques</h2>
+          <h2 class="tech-title">Prompt &amp; Context Engineering Techniques</h2>
         </div>
 
         <div class="tech-cards">
@@ -254,47 +282,43 @@
             <div class="tech-card-icon" style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
             </div>
-            <h3 class="tech-card-title">Persona &amp;<br/>System</h3>
+            <h3 class="tech-card-title">Persona &amp; System</h3>
             <p class="tech-card-desc">Set the role, expertise, behaviour, and tone for the AI before the task begins.</p>
             <div class="tech-card-tag" style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.05);">Role Definition</div>
           </div>
-
           <div class="tech-card">
             <div class="tech-card-num">02</div>
             <div class="tech-card-icon" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.06);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             </div>
-            <h3 class="tech-card-title">Few<br/>Shot</h3>
+            <h3 class="tech-card-title">Few Shot</h3>
             <p class="tech-card-desc">Provide examples to control the structure and style of the expected output.</p>
             <div class="tech-card-tag" style="color:#EA4335; border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.05);">Examples</div>
           </div>
-
           <div class="tech-card">
             <div class="tech-card-num">03</div>
             <div class="tech-card-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
-            <h3 class="tech-card-title">Chain of<br/>Thought</h3>
+            <h3 class="tech-card-title">Chain of Thought</h3>
             <p class="tech-card-desc">Guide AI to solve problems step by step, showing its reasoning before the final answer.</p>
             <div class="tech-card-tag" style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">Step-by-Step</div>
           </div>
-
           <div class="tech-card">
             <div class="tech-card-num">04</div>
             <div class="tech-card-icon" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
             </div>
-            <h3 class="tech-card-title">Tree of<br/>Thought</h3>
+            <h3 class="tech-card-title">Tree of Thought</h3>
             <p class="tech-card-desc">Explore multiple reasoning paths simultaneously, evaluate each, and select the best.</p>
             <div class="tech-card-tag" style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.05);">Multi-Path</div>
           </div>
-
           <div class="tech-card">
             <div class="tech-card-num">05</div>
             <div class="tech-card-icon" style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V9"/><path d="M12 12v3"/></svg>
             </div>
-            <h3 class="tech-card-title">Multi<br/>Stages</h3>
+            <h3 class="tech-card-title">Multi Stages</h3>
             <p class="tech-card-desc">Break complex tasks into a sequence of focused prompts — output of one feeds the next.</p>
             <div class="tech-card-tag" style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.05);">Pipeline</div>
           </div>
@@ -314,7 +338,7 @@
           <div class="technique-badge" style="color:#4285F4; background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
             <span class="tnum">01</span> Persona &amp; System
           </div>
-          <h2 class="technique-title">Set the Role<br/>&amp; Tone</h2>
+          <h2 class="technique-title">Set the Role &amp; Tone</h2>
           <p class="technique-def">Set the role, expertise, behaviour, constraint, and tone for the AI before the task begins — for the entire conversation.</p>
 
           <div class="technique-structure">
@@ -336,20 +360,28 @@
 
         <div class="technique-right">
           <div class="compare-label-row">
-            <span class="compare-badge compare-bad">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              Bad Prompt
-            </span>
-            <span class="compare-badge compare-good">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Good Prompt
-            </span>
+            <span class="compare-badge compare-bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Bad Prompt</span>
+            <span class="compare-badge compare-good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Good Prompt</span>
           </div>
 
           <div class="compare-blocks">
             <div class="compare-block compare-block-bad">
               <div class="cb-label">User</div>
               <div class="cb-text">"Explain what AI Agents are"</div>
+              <!-- Bad output mockup -->
+              <div class="cb-output-mock cb-output-bad">
+                <div class="cb-output-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                  AI Response
+                </div>
+                <div class="cb-output-lines">
+                  <div class="cb-line cb-line-full" style="background:rgba(234,67,53,0.1)"></div>
+                  <div class="cb-line cb-line-med" style="background:rgba(234,67,53,0.08)"></div>
+                  <div class="cb-line cb-line-full" style="background:rgba(234,67,53,0.1)"></div>
+                  <div class="cb-line cb-line-sm" style="background:rgba(234,67,53,0.08)"></div>
+                </div>
+                <div class="cb-output-tag" style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">Generic, jargon-heavy</div>
+              </div>
             </div>
 
             <div class="compare-block compare-block-good">
@@ -366,6 +398,20 @@
               </div>
               <div class="cb-label cb-label-user">User</div>
               <div class="cb-text">"Explain what AI Agents are"</div>
+              <!-- Good output mockup -->
+              <div class="cb-output-mock cb-output-good">
+                <div class="cb-output-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  AI Response
+                </div>
+                <div class="cb-output-lines">
+                  <div class="cb-line cb-line-full" style="background:rgba(52,168,83,0.12)"></div>
+                  <div class="cb-line cb-line-full" style="background:rgba(52,168,83,0.12)"></div>
+                  <div class="cb-line cb-line-med" style="background:rgba(52,168,83,0.1)"></div>
+                  <div class="cb-line cb-line-sm" style="background:rgba(52,168,83,0.1)"></div>
+                </div>
+                <div class="cb-output-tag" style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">Clear, junior-friendly, with examples</div>
+              </div>
             </div>
           </div>
         </div>
@@ -384,7 +430,7 @@
           <div class="technique-badge" style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">
             <span class="tnum">02</span> Few Shot
           </div>
-          <h2 class="technique-title">Guide with<br/>Examples</h2>
+          <h2 class="technique-title">Guide with Examples</h2>
           <p class="technique-def">Provide the AI with context and examples to control the structure and style of the expected output.</p>
 
           <div class="technique-structure">
@@ -405,20 +451,26 @@
 
         <div class="technique-right">
           <div class="compare-label-row">
-            <span class="compare-badge compare-bad">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              Bad Prompt
-            </span>
-            <span class="compare-badge compare-good">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Good Prompt
-            </span>
+            <span class="compare-badge compare-bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Bad Prompt</span>
+            <span class="compare-badge compare-good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Good Prompt</span>
           </div>
 
           <div class="compare-blocks">
             <div class="compare-block compare-block-bad">
               <div class="cb-label">User</div>
               <div class="cb-text">"Create a login page for this web application"</div>
+              <div class="cb-output-mock cb-output-bad">
+                <div class="cb-output-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                  AI Response
+                </div>
+                <div class="cb-output-lines">
+                  <div class="cb-line cb-line-full" style="background:rgba(234,67,53,0.1)"></div>
+                  <div class="cb-line cb-line-med" style="background:rgba(234,67,53,0.08)"></div>
+                  <div class="cb-line cb-line-full" style="background:rgba(234,67,53,0.1)"></div>
+                </div>
+                <div class="cb-output-tag" style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">Wrong tech stack, wrong style</div>
+              </div>
             </div>
 
             <div class="compare-block compare-block-good">
@@ -434,6 +486,18 @@
                 <span class="cc-muted">// Example</span><br/>
                 <span class="cc-yellow">Input: "Generate a Register page"</span><br/>
                 <span class="cc-yellow">Output: // RegisterPage.jsx ...</span>
+              </div>
+              <div class="cb-output-mock cb-output-good" style="margin-top:8px;">
+                <div class="cb-output-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  AI Response
+                </div>
+                <div class="cb-output-lines">
+                  <div class="cb-line cb-line-full" style="background:rgba(52,168,83,0.12)"></div>
+                  <div class="cb-line cb-line-full" style="background:rgba(52,168,83,0.12)"></div>
+                  <div class="cb-line cb-line-med" style="background:rgba(52,168,83,0.1)"></div>
+                </div>
+                <div class="cb-output-tag" style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">Exact stack, matches example pattern</div>
               </div>
             </div>
           </div>
@@ -453,7 +517,7 @@
           <div class="technique-badge" style="color:#9A7400; background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.3);">
             <span class="tnum" style="color:#9A7400;">03</span> Chain of Thought
           </div>
-          <h2 class="technique-title">Reason<br/>Step by Step</h2>
+          <h2 class="technique-title">Reason Step by Step</h2>
           <p class="technique-def">Guide the AI to solve a problem step by step — showing its reasoning process before giving the final answer.</p>
 
           <div class="technique-structure">
@@ -473,31 +537,49 @@
 
         <div class="technique-right">
           <div class="compare-label-row">
-            <span class="compare-badge compare-bad">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              Bad Prompt
-            </span>
-            <span class="compare-badge compare-good">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Good Prompt
-            </span>
+            <span class="compare-badge compare-bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Bad Prompt</span>
+            <span class="compare-badge compare-good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Good Prompt</span>
           </div>
 
           <div class="compare-blocks">
             <div class="compare-block compare-block-bad">
               <div class="cb-label">User</div>
               <div class="cb-text">"Why is the RAG Chatbot response inaccurate?"</div>
+              <div class="cb-output-mock cb-output-bad">
+                <div class="cb-output-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                  AI Response
+                </div>
+                <div class="cb-output-lines">
+                  <div class="cb-line cb-line-full" style="background:rgba(234,67,53,0.1)"></div>
+                  <div class="cb-line cb-line-sm" style="background:rgba(234,67,53,0.08)"></div>
+                </div>
+                <div class="cb-output-tag" style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">Single guess, no reasoning</div>
+              </div>
             </div>
 
             <div class="compare-block compare-block-good">
               <div class="cb-code" style="font-size:10.5px; line-height:1.65;">
                 <span class="cc-white">"Why is the RAG Chatbot inaccurate?</span><br/>
                 <span class="cc-blue">Think step by step:</span><br/>
-                <span class="cc-yellow">Step 1:</span><span class="cc-white"> Check retrieval layer — right doc?</span><br/>
-                <span class="cc-yellow">Step 2:</span><span class="cc-white"> Check chunking strategy — too large/small?</span><br/>
-                <span class="cc-yellow">Step 3:</span><span class="cc-white"> Check embedding model — same semantic space?</span><br/>
-                <span class="cc-yellow">Step 4:</span><span class="cc-white"> Check model capability — powerful enough?</span><br/>
-                <span class="cc-green">Step 5:</span><span class="cc-white"> Identify root cause &amp; suggest concrete fix."</span>
+                <span class="cc-yellow">Step 1:</span><span class="cc-white"> Check retrieval — right doc?</span><br/>
+                <span class="cc-yellow">Step 2:</span><span class="cc-white"> Check chunking — too large/small?</span><br/>
+                <span class="cc-yellow">Step 3:</span><span class="cc-white"> Check embedding model</span><br/>
+                <span class="cc-yellow">Step 4:</span><span class="cc-white"> Check model capability</span><br/>
+                <span class="cc-green">Step 5:</span><span class="cc-white"> Root cause &amp; concrete fix."</span>
+              </div>
+              <div class="cb-output-mock cb-output-good" style="margin-top:8px;">
+                <div class="cb-output-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  AI Response
+                </div>
+                <div class="cb-output-lines">
+                  <div class="cb-line cb-line-full" style="background:rgba(52,168,83,0.12)"></div>
+                  <div class="cb-line cb-line-full" style="background:rgba(52,168,83,0.12)"></div>
+                  <div class="cb-line cb-line-full" style="background:rgba(52,168,83,0.12)"></div>
+                  <div class="cb-line cb-line-med" style="background:rgba(52,168,83,0.1)"></div>
+                </div>
+                <div class="cb-output-tag" style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">Systematic diagnosis + root fix</div>
               </div>
             </div>
           </div>
@@ -517,7 +599,7 @@
           <div class="technique-badge" style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
             <span class="tnum" style="color:#34A853;">04</span> Tree of Thought
           </div>
-          <h2 class="technique-title">Explore<br/>Multiple Paths</h2>
+          <h2 class="technique-title">Explore Multiple Paths</h2>
           <p class="technique-def">Guide AI to explore multiple reasoning paths simultaneously, evaluate each one, and select the best solution.</p>
 
           <div class="technique-structure">
@@ -538,35 +620,61 @@
         </div>
 
         <div class="technique-right">
-          <div class="tot-diagram">
-            <div class="tot-root">
-              <div class="tot-node tot-node-root">Identity Verification Agent</div>
+          <div class="compare-label-row">
+            <span class="compare-badge compare-bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Bad Prompt</span>
+            <span class="compare-badge compare-good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Good Prompt</span>
+          </div>
+
+          <div class="compare-blocks">
+            <div class="compare-block compare-block-bad" style="flex:0.8;">
+              <div class="cb-label">User</div>
+              <div class="cb-text">"Design the best architecture for Identity Verification Agent"</div>
+              <div class="cb-output-mock cb-output-bad">
+                <div class="cb-output-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                  AI Response
+                </div>
+                <div class="cb-output-lines">
+                  <div class="cb-line cb-line-full" style="background:rgba(234,67,53,0.1)"></div>
+                  <div class="cb-line cb-line-med" style="background:rgba(234,67,53,0.08)"></div>
+                </div>
+                <div class="cb-output-tag" style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">One random guess</div>
+              </div>
             </div>
-            <div class="tot-branches">
-              <div class="tot-branch">
-                <div class="tot-node tot-node-a">
-                  <div class="tot-node-label">A</div>
-                  <span>Single Agent</span>
+
+            <div class="compare-block compare-block-good" style="padding:14px;">
+              <div class="tot-diagram">
+                <div class="tot-root">
+                  <div class="tot-node-root">Identity Verification Agent</div>
                 </div>
-                <div class="tot-node-desc">One LLM handles OCR, validation &amp; fraud detection</div>
-                <div class="tot-eval tot-eval-mid">⚡ Fast · ⚠️ Lower accuracy</div>
-              </div>
-              <div class="tot-branch tot-branch-selected">
-                <div class="tot-node tot-node-b">
-                  <div class="tot-node-label">B</div>
-                  <span>Multi-Agent</span>
+                <div class="tot-branches">
+                  <div class="tot-branch">
+                    <div class="tot-node tot-node-a">
+                      <div class="tot-node-label">A</div>
+                      <span>Single Agent</span>
+                    </div>
+                    <div class="tot-node-desc">One LLM handles OCR, validation &amp; fraud detection</div>
+                    <div class="tot-eval tot-eval-mid">⚡ Fast · ⚠️ Lower accuracy</div>
+                  </div>
+                  <div class="tot-branch tot-branch-selected">
+                    <div class="tot-node tot-node-b">
+                      <div class="tot-node-label">B</div>
+                      <span>Multi-Agent</span>
+                    </div>
+                    <div class="tot-node-desc">Separate agents for OCR, validation, liveness, fraud</div>
+                    <div class="tot-eval tot-eval-best">✅ Best for fintech</div>
+                  </div>
+                  <div class="tot-branch">
+                    <div class="tot-node tot-node-c">
+                      <div class="tot-node-label">C</div>
+                      <span>Human-in-Loop</span>
+                    </div>
+                    <div class="tot-node-desc">AI handles standard; escalates suspicious cases</div>
+                    <div class="tot-eval tot-eval-mid">🔒 Compliant · Slower</div>
+                  </div>
                 </div>
-                <div class="tot-node-desc">Separate agents for OCR, validation, liveness, fraud</div>
-                <div class="tot-eval tot-eval-best">✅ High accuracy · Best for fintech</div>
               </div>
-              <div class="tot-branch">
-                <div class="tot-node tot-node-c">
-                  <div class="tot-node-label">C</div>
-                  <span>Human-in-Loop</span>
-                </div>
-                <div class="tot-node-desc">AI handles standard; escalates suspicious cases</div>
-                <div class="tot-eval tot-eval-mid">🔒 Compliant · Slower throughput</div>
-              </div>
+              <div class="cb-output-tag" style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2); margin-top:8px;">Evaluates all paths → picks best</div>
             </div>
           </div>
         </div>
@@ -585,7 +693,7 @@
           <div class="technique-badge" style="color:#4285F4; background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
             <span class="tnum">05</span> Multi Stages
           </div>
-          <h2 class="technique-title">Break It<br/>Into Stages</h2>
+          <h2 class="technique-title">Break It Into Stages</h2>
           <p class="technique-def">Break a complex task into a sequence of smaller, focused prompts — where the output of one stage becomes the input of the next.</p>
 
           <div class="technique-structure">
@@ -608,40 +716,58 @@
         </div>
 
         <div class="technique-right">
-          <div class="ms-pipeline">
-            <div class="ms-pl-label">Example: AI Price Comparison Agent</div>
-            <div class="ms-pl-steps">
-              <div class="ms-pl-step">
-                <div class="ms-pl-step-head" style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.05);">
-                  <span class="ms-pl-num" style="color:#4285F4;">Stage 1</span>
-                  <span class="ms-pl-name">Understand</span>
+          <div class="compare-label-row">
+            <span class="compare-badge compare-bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Bad Prompt</span>
+            <span class="compare-badge compare-good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Good Prompt</span>
+          </div>
+
+          <div class="compare-blocks">
+            <div class="compare-block compare-block-bad" style="flex:0.75;">
+              <div class="cb-label">User</div>
+              <div class="cb-text">"Build a complete AI Price Comparison Agent"</div>
+              <div class="cb-output-mock cb-output-bad">
+                <div class="cb-output-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                  AI Response
                 </div>
-                <p class="ms-pl-desc">Analyze requirements: what data, comparison logic, edge cases?</p>
-              </div>
-              <div class="ms-pl-connector">↓</div>
-              <div class="ms-pl-step">
-                <div class="ms-pl-step-head" style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.05);">
-                  <span class="ms-pl-num" style="color:#EA4335;">Stage 2</span>
-                  <span class="ms-pl-name">Design</span>
+                <div class="cb-output-lines">
+                  <div class="cb-line cb-line-full" style="background:rgba(234,67,53,0.1)"></div>
+                  <div class="cb-line cb-line-med" style="background:rgba(234,67,53,0.08)"></div>
                 </div>
-                <p class="ms-pl-desc">Design agent workflow, architecture, and component responsibilities</p>
+                <div class="cb-output-tag" style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">Incomplete, missing edge cases</div>
               </div>
-              <div class="ms-pl-connector">↓</div>
-              <div class="ms-pl-step">
-                <div class="ms-pl-step-head" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.05);">
-                  <span class="ms-pl-num" style="color:#9A7400;">Stage 3</span>
-                  <span class="ms-pl-name">Execute</span>
+            </div>
+
+            <div class="compare-block compare-block-good">
+              <div class="ms-pipeline">
+                <div class="ms-pl-label">AI Price Comparison Agent</div>
+                <div class="ms-pl-steps">
+                  <div class="ms-pl-step">
+                    <div class="ms-pl-step-head" style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.05);">
+                      <span class="ms-pl-num" style="color:#4285F4;">Stage 1</span>
+                      <span class="ms-pl-name">Understand</span>
+                    </div>
+                    <p class="ms-pl-desc">Requirements, data, comparison logic, edge cases</p>
+                  </div>
+                  <div class="ms-pl-connector">↓</div>
+                  <div class="ms-pl-step">
+                    <div class="ms-pl-step-head" style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.05);">
+                      <span class="ms-pl-num" style="color:#EA4335;">Stage 2</span>
+                      <span class="ms-pl-name">Design</span>
+                    </div>
+                    <p class="ms-pl-desc">Workflow, architecture, component responsibilities</p>
+                  </div>
+                  <div class="ms-pl-connector">↓</div>
+                  <div class="ms-pl-step">
+                    <div class="ms-pl-step-head" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.05);">
+                      <span class="ms-pl-num" style="color:#9A7400;">Stage 3–4</span>
+                      <span class="ms-pl-name">Execute &amp; Refine</span>
+                    </div>
+                    <p class="ms-pl-desc">Generate code → review → fix → add tests</p>
+                  </div>
                 </div>
-                <p class="ms-pl-desc">Generate Python code for search and price comparison component</p>
               </div>
-              <div class="ms-pl-connector">↓</div>
-              <div class="ms-pl-step">
-                <div class="ms-pl-step-head" style="border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.05);">
-                  <span class="ms-pl-num" style="color:#34A853;">Stage 4–5</span>
-                  <span class="ms-pl-name">Review &amp; Refine</span>
-                </div>
-                <p class="ms-pl-desc">Review for accuracy, fix issues, add unit tests for edge cases</p>
-              </div>
+              <div class="cb-output-tag" style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2); margin-top:8px;">Structured → complete → production-ready</div>
             </div>
           </div>
         </div>
@@ -650,74 +776,21 @@
     </section>
 
     <!-- ============================
-         SLIDE C2-9 — WHAT CAN WE BUILD?
+         SLIDE C2-9 — WHAT CAN WE BUILD? (Reveal style)
          ============================ -->
-    <section class="slide slide-what-build" id="slide-9">
+    <section class="slide slide-reveal" id="slide-9" data-steps="2">
       <div class="slide-label">What Can We Build?</div>
-      <div class="build-bg">
-        <div class="build-dot-grid"></div>
-        <div class="build-glow"></div>
-      </div>
-      <div class="slide-content build-layout">
 
-        <div class="build-header">
-          <p class="build-eyebrow">Prompt &amp; Context Engineering</p>
-          <h2 class="build-title">What Can We Build<br/>with These Techniques?</h2>
+      <!-- Step 1: Question only -->
+      <div class="reveal-step step-1 active-step">
+        <div class="reveal-bg">
+          <div class="reveal-dot-grid"></div>
         </div>
-
-        <div class="build-grid">
-          <div class="build-card build-card-lg">
-            <div class="build-card-icon" style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h3 class="build-card-title">AI Chatbots &amp; Assistants</h3>
-            <p class="build-card-desc">Domain-specific assistants with persona, constraints, and tone tailored for your users.</p>
-            <span class="build-card-tag" style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">Persona &amp; System</span>
-          </div>
-
-          <div class="build-card">
-            <div class="build-card-icon" style="background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <h3 class="build-card-title">AI Code Generator</h3>
-            <p class="build-card-desc">Generate components, APIs, and tests with examples and tech stack context.</p>
-            <span class="build-card-tag" style="color:#EA4335; border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.06);">Few Shot</span>
-          </div>
-
-          <div class="build-card">
-            <div class="build-card-icon" style="background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.3);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            </div>
-            <h3 class="build-card-title">AI Debugger</h3>
-            <p class="build-card-desc">Systematic bug investigation using chain-of-thought reasoning through each layer.</p>
-            <span class="build-card-tag" style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">Chain of Thought</span>
-          </div>
-
-          <div class="build-card">
-            <div class="build-card-icon" style="background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
-            </div>
-            <h3 class="build-card-title">Architecture Advisor</h3>
-            <p class="build-card-desc">Evaluate multiple system designs and select the best fit for your requirements.</p>
-            <span class="build-card-tag" style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">Tree of Thought</span>
-          </div>
-
-          <div class="build-card build-card-wide">
-            <div class="build-card-icon" style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V9"/><path d="M12 12v3"/></svg>
-            </div>
-            <h3 class="build-card-title">Full-Stack AI Development Pipelines</h3>
-            <p class="build-card-desc">Understand → Design → Build → Review → Refine. Turn complex ideas into production-ready software through structured AI collaboration.</p>
-            <span class="build-card-tag" style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">Multi Stages</span>
-          </div>
+        <div class="slide-content reveal-center">
+          <h2 class="reveal-question">
+            What Can We Build with<br/><span class="rq-highlight-blue">Prompt &amp; Context</span><br/>Engineering Techniques?
+          </h2>
         </div>
-
-        <div class="build-cta">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-          <span>The techniques above are the foundation — Chapter 3 shows these in action with Gemini</span>
-          <span class="build-cta-tag">Chapter 3 →</span>
-        </div>
-
       </div>
     </section>
 

@@ -5,13 +5,11 @@
 
 'use strict';
 
-// ── State ────────────────────────────────────
 let currentIndex = 0;
 let isAnimating  = false;
 let touchStartX  = 0;
 let touchStartY  = 0;
 
-// ── DOM refs ─────────────────────────────────
 const slides      = Array.from(document.querySelectorAll('.slide'));
 const totalEl     = document.getElementById('totalSlides');
 const currentEl   = document.getElementById('currentSlide');
@@ -19,7 +17,31 @@ const progressBar = document.getElementById('progressBar');
 const prevBtn     = document.getElementById('prevBtn');
 const nextBtn     = document.getElementById('nextBtn');
 
-// ── Init ─────────────────────────────────────
+// Step state per slide
+const stepState = slides.map(() => 0);
+
+function getStepCount(slideEl) {
+  return parseInt(slideEl.dataset.steps || '1', 10);
+}
+
+function getStepEls(slideEl) {
+  return Array.from(slideEl.querySelectorAll('.reveal-step'));
+}
+
+function showStep(slideEl, stepIndex) {
+  const stepEls = getStepEls(slideEl);
+  if (!stepEls.length) return;
+  stepEls.forEach((el, i) => {
+    el.classList.toggle('active-step', i === stepIndex);
+  });
+}
+
+function resetSteps(slideEl) {
+  const i = slides.indexOf(slideEl);
+  stepState[i] = 0;
+  showStep(slideEl, 0);
+}
+
 function init() {
   totalEl.textContent = slides.length;
   goTo(0, 'none');
@@ -27,7 +49,6 @@ function init() {
   attachEvents();
 }
 
-// ── Navigation ───────────────────────────────
 function goTo(index, direction = 'next') {
   if (isAnimating) return;
   if (index < 0 || index >= slides.length) return;
@@ -36,6 +57,8 @@ function goTo(index, direction = 'next') {
 
   const prev = slides[currentIndex];
   const next = slides[index];
+
+  resetSteps(next);
 
   slides.forEach(s => s.classList.remove('active', 'prev'));
   next.classList.add('active');
@@ -52,14 +75,32 @@ function goTo(index, direction = 'next') {
 }
 
 function nextSlide() {
-  if (currentIndex < slides.length - 1) goTo(currentIndex + 1, 'next');
+  const slide = slides[currentIndex];
+  const totalSteps = getStepCount(slide);
+  const cur = stepState[currentIndex];
+
+  if (cur < totalSteps - 1) {
+    stepState[currentIndex]++;
+    showStep(slide, stepState[currentIndex]);
+    updateControls();
+  } else if (currentIndex < slides.length - 1) {
+    goTo(currentIndex + 1, 'next');
+  }
 }
 
 function prevSlide() {
-  if (currentIndex > 0) goTo(currentIndex - 1, 'prev');
+  const slide = slides[currentIndex];
+  const cur = stepState[currentIndex];
+
+  if (cur > 0) {
+    stepState[currentIndex]--;
+    showStep(slide, stepState[currentIndex]);
+    updateControls();
+  } else if (currentIndex > 0) {
+    goTo(currentIndex - 1, 'prev');
+  }
 }
 
-// ── HUD Update ───────────────────────────────
 function updateHUD() {
   currentEl.textContent = currentIndex + 1;
   const progress = ((currentIndex + 1) / slides.length) * 100;
@@ -68,11 +109,13 @@ function updateHUD() {
 }
 
 function updateControls() {
-  prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = currentIndex === slides.length - 1;
+  const atStart = currentIndex === 0 && stepState[currentIndex] === 0;
+  const atEnd   = currentIndex === slides.length - 1 &&
+                  stepState[currentIndex] === getStepCount(slides[currentIndex]) - 1;
+  prevBtn.disabled = atStart;
+  nextBtn.disabled = atEnd;
 }
 
-// ── Events ───────────────────────────────────
 function attachEvents() {
   document.addEventListener('keydown', onKeyDown);
   document.addEventListener('wheel', debounce(onWheel, 80), { passive: true });
@@ -139,7 +182,6 @@ function onContainerClick(e) {
   else if (x < 0.35) prevSlide();
 }
 
-// ── Fullscreen ───────────────────────────────
 function toggleFullscreen() {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen().catch(() => {});
@@ -148,7 +190,6 @@ function toggleFullscreen() {
   }
 }
 
-// ── Utility ──────────────────────────────────
 function debounce(fn, wait) {
   let timer;
   return function (...args) {
@@ -157,5 +198,4 @@ function debounce(fn, wait) {
   };
 }
 
-// ── Start ─────────────────────────────────────
 init();
