@@ -23,8 +23,8 @@
   --font-display: 'Google Sans Display', 'Google Sans', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'DM Mono', 'Fira Code', monospace;
-  --slide-pad-x: 72px;
-  --slide-pad-y: 52px;
+  --slide-pad-x: 88px;
+  --slide-pad-y: 64px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -183,8 +183,8 @@ html, body {
    ============================================= */
 .slide-label {
   position: absolute;
-  top: 20px; left: var(--slide-pad-x);
-  font-size: 10px;
+  top: 24px; left: var(--slide-pad-x);
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -210,7 +210,7 @@ html, body {
    GDG DOTS
    ============================================= */
 .gdg-dot {
-  width: 8px; height: 8px;
+  width: 10px; height: 10px;
   border-radius: 50%;
   display: inline-block;
   flex-shrink: 0;
@@ -226,10 +226,10 @@ html, body {
 .uc-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 7px 16px;
+  gap: 8px;
+  padding: 9px 20px;
   border-radius: 100px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--text-secondary);
   background: var(--bg);
@@ -242,9 +242,9 @@ html, body {
 .tc-pill {
   display: inline-flex;
   align-items: center;
-  padding: 5px 12px;
+  padding: 7px 16px;
   border-radius: 100px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-secondary);
   background: var(--bg);
@@ -295,8 +295,8 @@ html, body {
 .cc-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
+  gap: 10px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -307,20 +307,20 @@ html, body {
 
 .cc-title {
   font-family: var(--font-display);
-  font-size: 68px;
+  font-size: 82px;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.08;
   letter-spacing: -0.025em;
-  max-width: 680px;
+  max-width: 820px;
 }
 .cc-title em { font-style: normal; color: var(--blue); }
 
 .cc-desc {
-  font-size: 16px;
+  font-size: 20px;
   color: rgba(255,255,255,0.45);
   line-height: 1.6;
-  max-width: 520px;
+  max-width: 620px;
 }
 
 .cc-accent-bar {
@@ -338,8 +338,8 @@ html, body {
 .cc-preview-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 14px;
+  gap: 12px;
+  font-size: 17px;
   color: rgba(255,255,255,0.5);
   font-family: var(--font-body);
 }
@@ -363,20 +363,20 @@ html, body {
   opacity: 0.5;
 }
 
-.evo-layout { gap: 28px; }
+.evo-layout { gap: 36px; }
 
 .evo-header { flex-shrink: 0; }
 .evo-eyebrow {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .evo-title {
   font-family: var(--font-display);
-  font-size: 42px;
+  font-size: 52px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -406,10 +406,10 @@ html, body {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 24px 22px;
+  padding: 30px 28px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   position: relative;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -435,7 +435,7 @@ html, body {
 .era-period { display: flex; flex-direction: column; gap: 8px; }
 .era-years {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
 }
@@ -450,8 +450,8 @@ html, body {
 .era-body { display: flex; flex-direction: column; gap: 12px; flex: 1; }
 
 .era-icon-wrap {
-  width: 44px; height: 44px;
-  border-radius: 12px;
+  width: 54px; height: 54px;
+  border-radius: 14px;
   border: 1.5px solid;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -460,20 +460,20 @@ html, body {
 .era-text { display: flex; flex-direction: column; gap: 4px; }
 .era-name {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
-.era-desc { font-size: 12.5px; color: var(--text-muted); }
+.era-desc { font-size: 15px; color: var(--text-muted); }
 
 .era-code {
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.7;
   background: #1A1D21;
-  border-radius: 8px;
-  padding: 10px 14px;
+  border-radius: 10px;
+  padding: 14px 18px;
   margin-top: 4px;
   border: 1px solid rgba(255,255,255,0.05);
 }
@@ -489,9 +489,9 @@ html, body {
 .era-tag {
   display: inline-flex;
   align-self: flex-start;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 100px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.05em;
   border: 1px solid;
@@ -503,16 +503,16 @@ html, body {
 .evo-insight {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 18px;
-  border-radius: 10px;
+  gap: 12px;
+  padding: 16px 22px;
+  border-radius: 12px;
   background: rgba(66,133,244,0.04);
   border: 1px solid rgba(66,133,244,0.12);
   flex-shrink: 0;
 }
 .evo-insight-icon { flex-shrink: 0; }
 .evo-insight p {
-  font-size: 13.5px;
+  font-size: 16px;
   color: var(--text-secondary);
   font-style: italic;
   line-height: 1.5;
@@ -537,20 +537,20 @@ html, body {
   background: radial-gradient(ellipse, rgba(66,133,244,0.07) 0%, transparent 70%);
 }
 
-.emerging-layout { gap: 32px; }
+.emerging-layout { gap: 40px; }
 
 .em-header { flex-shrink: 0; }
 .em-eyebrow {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.35);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .em-title {
   font-family: var(--font-display);
-  font-size: 52px;
+  font-size: 64px;
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: -0.025em;
@@ -560,18 +560,18 @@ html, body {
 .em-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
   flex: 1;
 }
 
 .em-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
-  padding: 28px 24px;
+  border-radius: 20px;
+  padding: 36px 32px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
   transition: border-color 0.2s, background 0.2s;
   position: relative;
   overflow: hidden;
@@ -594,15 +594,15 @@ html, body {
 
 .em-card-num {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: rgba(255,255,255,0.2);
   letter-spacing: 0.05em;
 }
 
 .em-card-icon {
-  width: 52px; height: 52px;
-  border-radius: 14px;
+  width: 64px; height: 64px;
+  border-radius: 16px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   display: flex; align-items: center; justify-content: center;
@@ -610,14 +610,14 @@ html, body {
 
 .em-card-title {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 600;
   color: #FFFFFF;
   letter-spacing: -0.015em;
 }
 
 .em-card-desc {
-  font-size: 14px;
+  font-size: 17px;
   color: rgba(255,255,255,0.45);
   line-height: 1.55;
   flex: 1;
@@ -626,9 +626,9 @@ html, body {
 .em-card-tag {
   display: inline-flex;
   align-self: flex-start;
-  padding: 5px 14px;
+  padding: 7px 18px;
   border-radius: 100px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   border: 1px solid;
   font-family: var(--font-body);
@@ -656,8 +656,8 @@ html, body {
 .genai-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 11px;
+  gap: 10px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -667,7 +667,7 @@ html, body {
 
 .genai-title {
   font-family: var(--font-display);
-  font-size: 46px;
+  font-size: 56px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
@@ -675,25 +675,25 @@ html, body {
 }
 
 .genai-def {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.65;
-  max-width: 420px;
+  max-width: 520px;
 }
 
 .genai-quote {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--text-primary);
   line-height: 1.65;
   font-style: italic;
   border-left: 3px solid var(--blue);
-  padding-left: 16px;
-  max-width: 420px;
+  padding-left: 20px;
+  max-width: 520px;
 }
 
 .genai-usecases { display: flex; flex-direction: column; gap: 8px; }
 .genai-uc-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -709,7 +709,7 @@ html, body {
 }
 
 .genai-tools-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -725,18 +725,18 @@ html, body {
 .tools-category {
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 16px;
+  border-radius: 14px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .tc-header {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 12px;
+  gap: 8px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-secondary);
   letter-spacing: 0.02em;
@@ -757,7 +757,7 @@ html, body {
 
 .workflows-layout {
   flex-direction: row;
-  gap: 56px;
+  gap: 64px;
   align-items: flex-start;
 }
 
@@ -771,8 +771,8 @@ html, body {
 .wf-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 11px;
+  gap: 10px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -782,7 +782,7 @@ html, body {
 
 .wf-title {
   font-family: var(--font-display);
-  font-size: 46px;
+  font-size: 56px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
@@ -790,25 +790,25 @@ html, body {
 }
 
 .wf-def {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.65;
-  max-width: 420px;
+  max-width: 520px;
 }
 
 .wf-quote {
-  font-size: 14.5px;
+  font-size: 18px;
   color: var(--text-primary);
   line-height: 1.65;
   font-style: italic;
   border-left: 3px solid var(--yellow);
-  padding-left: 16px;
-  max-width: 420px;
+  padding-left: 20px;
+  max-width: 520px;
 }
 
 .wf-usecases { display: flex; flex-direction: column; gap: 8px; }
 .wf-uc-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -826,15 +826,15 @@ html, body {
 .wf-diagram {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 28px 24px;
+  border-radius: 20px;
+  padding: 36px 30px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 .wfd-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -856,21 +856,21 @@ html, body {
 }
 
 .wfd-step-icon {
-  width: 48px; height: 48px;
-  border-radius: 14px;
+  width: 58px; height: 58px;
+  border-radius: 16px;
   border: 1.5px solid;
   display: flex; align-items: center; justify-content: center;
 }
 
 .wfd-step-label {
-  font-size: 11.5px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
   font-family: var(--font-body);
 }
 
 .wfd-arrow {
-  font-size: 18px;
+  font-size: 22px;
   color: var(--border);
   flex-shrink: 0;
   padding: 0 4px;
@@ -889,7 +889,7 @@ html, body {
   gap: 8px;
 }
 .wf-tools-col-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -918,7 +918,7 @@ html, body {
 
 .agents-layout {
   flex-direction: row;
-  gap: 56px;
+  gap: 64px;
   align-items: flex-start;
 }
 
@@ -932,8 +932,8 @@ html, body {
 .ag-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 11px;
+  gap: 10px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -943,7 +943,7 @@ html, body {
 
 .ag-title {
   font-family: var(--font-display);
-  font-size: 42px;
+  font-size: 52px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
@@ -951,25 +951,25 @@ html, body {
 }
 
 .ag-def {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-muted);
   line-height: 1.65;
   max-width: 420px;
 }
 
 .ag-quote {
-  font-size: 14.5px;
+  font-size: 18px;
   color: rgba(17,24,39,0.82);
   line-height: 1.65;
   font-style: italic;
   border-left: 3px solid var(--green);
-  padding-left: 16px;
-  max-width: 420px;
+  padding-left: 20px;
+  max-width: 520px;
 }
 
 .ag-usecases { display: flex; flex-direction: column; gap: 8px; }
 .ag-uc-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -987,7 +987,7 @@ html, body {
 }
 
 .ag-cycle-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -996,8 +996,8 @@ html, body {
 
 .ag-cycle {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: 280px;
   flex-shrink: 0;
 }
 
@@ -1005,7 +1005,7 @@ html, body {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 80px; height: 80px;
+  width: 100px; height: 100px;
   border-radius: 50%;
   background: rgba(52,168,83,0.08);
   border: 1.5px solid rgba(52,168,83,0.24);
@@ -1017,7 +1017,7 @@ html, body {
   z-index: 5;
 }
 .ag-cycle-center span {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -1036,7 +1036,7 @@ html, body {
   transform: translate(-50%, -50%);
 }
 .ag-step span {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
 }
@@ -1047,8 +1047,8 @@ html, body {
 .ag-step-left   { top: 50%;  left: 0%; }
 
 .ag-step-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
+  width: 50px; height: 50px;
+  border-radius: 12px;
   border: 1.5px solid;
   display: flex; align-items: center; justify-content: center;
   background: rgba(255,255,255,0.7);
@@ -1069,7 +1069,7 @@ html, body {
   min-width: 100px;
 }
 .ag-tools-col-label {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1114,10 +1114,10 @@ html, body {
   opacity: 0.5;
 }
 
-.summary-layout { gap: 24px; justify-content: center; }
+.summary-layout { gap: 32px; justify-content: center; }
 
 .sum-eyebrow {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1126,7 +1126,7 @@ html, body {
 
 .sum-title {
   font-family: var(--font-display);
-  font-size: 50px;
+  font-size: 60px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
@@ -1137,25 +1137,25 @@ html, body {
 .sum-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 18px;
   flex: 1;
 }
 
 .sum-card {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 20px 18px;
+  border-radius: 16px;
+  padding: 26px 24px;
   transition: box-shadow 0.2s;
 }
 .sum-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
 
 .sum-card-icon {
-  width: 44px; height: 44px;
-  border-radius: 12px;
+  width: 54px; height: 54px;
+  border-radius: 14px;
   border: 1.5px solid;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -1164,13 +1164,13 @@ html, body {
 .sum-card-content { display: flex; flex-direction: column; gap: 5px; }
 .sum-card-content h4 {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 .sum-card-content p {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.5;
 }
@@ -1178,8 +1178,8 @@ html, body {
 .sum-nav-hint {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
+  gap: 10px;
+  font-size: 15px;
   color: var(--text-muted);
   font-style: italic;
   align-self: flex-start;
@@ -1282,8 +1282,8 @@ html, body {
 .vibe-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
+  gap: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1293,7 +1293,7 @@ html, body {
 
 .vibe-title {
   font-family: var(--font-display);
-  font-size: 60px;
+  font-size: 72px;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.1;
@@ -1301,7 +1301,7 @@ html, body {
 }
 
 .vibe-desc {
-  font-size: 17px;
+  font-size: 20px;
   color: rgba(255,255,255,0.45);
   line-height: 1.7;
   max-width: 520px;
@@ -1326,13 +1326,13 @@ html, body {
 }
 .vibe-stat-num {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1;
 }
 .vibe-stat-label {
-  font-size: 13px;
+  font-size: 16px;
   color: rgba(255,255,255,0.35);
   line-height: 1.4;
 }
@@ -1348,8 +1348,8 @@ html, body {
 .vibe-source {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
+  gap: 10px;
+  font-size: 15px;
   color: rgba(255,255,255,0.3);
   margin-top: 4px;
 }
@@ -1510,7 +1510,7 @@ html, body {
 }
 .who-title {
   font-family: var(--font-display);
-  font-size: 52px;
+  font-size: 56px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.025em;
@@ -1530,9 +1530,9 @@ html, body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 36px 31px;
-  border-radius: 16px;
+  gap: 24px;
+  padding: 40px 36px;
+  border-radius: 18px;
   border: 1px solid var(--border);
 }
 
@@ -1548,12 +1548,12 @@ html, body {
 .who-col-badge {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font-size: 14px;
+  gap: 8px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 6px 18px;
+  padding: 8px 20px;
   border-radius: 100px;
   align-self: flex-start;
   font-family: var(--font-body);
@@ -1576,9 +1576,9 @@ html, body {
 .who-item {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  padding: 18px 20px;
-  border-radius: 12px;
+  gap: 18px;
+  padding: 20px 24px;
+  border-radius: 14px;
   border: 1px solid transparent;
 }
 .who-item-before {
@@ -1598,7 +1598,7 @@ html, body {
   gap: 4px;
 }
 .who-item-text strong {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--text-primary);
   line-height: 1.25;
@@ -1628,7 +1628,7 @@ html, body {
   max-height: 60px;
 }
 .who-arrow-label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1684,8 +1684,8 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 39.6px; /* increased 10% from 36px */
-  max-width: 820px;
+  gap: 44px;
+  max-width: 920px;
   margin: 0 auto;
   text-align: center;
 }
@@ -1703,7 +1703,7 @@ html, body {
 
 .karp-quote {
   font-family: var(--font-display);
-  font-size: 50.6px; /* increased 10% from 46px */
+  font-size: 58px;
   font-weight: 700;
   color: rgba(255,255,255,0.9);
   line-height: 1.25;
@@ -1727,13 +1727,13 @@ html, body {
 }
 
 .karp-avatar {
-  width: 52.8px; height: 52.8px; /* increased 10% from 48px */
+  width: 64px; height: 64px;
   border-radius: 50%;
   background: rgba(66,133,244,0.15);
-  border: 1.65px solid rgba(66,133,244,0.3);
+  border: 2px solid rgba(66,133,244,0.3);
   color: #82B8FF;
   font-family: var(--font-display);
-  font-size: 17.6px; /* increased 10% from 16px */
+  font-size: 20px;
   font-weight: 700;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -1750,17 +1750,17 @@ html, body {
 .karp-attr-text {
   display: flex;
   flex-direction: column;
-  gap: 2.2px; /* increased 10% from 2px */
+  gap: 4px;
   text-align: left;
 }
 .karp-attr-text strong {
-  font-size: 17.6px; /* increased 10% from 16px */
+  font-size: 20px;
   font-weight: 700;
   color: rgba(255,255,255,0.9);
   font-family: var(--font-display);
 }
 .karp-attr-text span {
-  font-size: 14.3px; /* increased 10% from 13px */
+  font-size: 17px;
   color: rgba(255,255,255,0.35);
 }
 
@@ -1817,7 +1817,7 @@ html, body {
 }
 
 .skill-layout {
-  gap: 32px;
+  gap: 40px;
   justify-content: center;
 }
 
@@ -1829,7 +1829,7 @@ html, body {
 }
 
 .skill-eyebrow {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1845,16 +1845,16 @@ html, body {
 .skill-premise {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 16px 20px;
+  gap: 16px;
+  padding: 22px 28px;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .skill-premise-num {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
   width: 22px;
@@ -1863,7 +1863,7 @@ html, body {
 }
 
 .skill-premise p {
-  font-size: 16px;
+  font-size: 20px;
   color: var(--text-secondary);
   line-height: 1.5;
   font-family: var(--font-display);
@@ -1899,11 +1899,11 @@ html, body {
 .skill-answer-card {
   background: linear-gradient(135deg, rgba(66,133,244,0.04) 0%, rgba(52,168,83,0.03) 100%);
   border: 1.5px solid rgba(66,133,244,0.2);
-  border-radius: 18px;
-  padding: 32px 36px;
+  border-radius: 20px;
+  padding: 40px 44px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   flex: 1;
   position: relative;
   overflow: hidden;
@@ -1918,8 +1918,8 @@ html, body {
 }
 
 .skill-answer-icon {
-  width: 64px; height: 64px;
-  border-radius: 18px;
+  width: 76px; height: 76px;
+  border-radius: 20px;
   background: rgba(66,133,244,0.08);
   border: 1.5px solid rgba(66,133,244,0.2);
   display: flex; align-items: center; justify-content: center;
@@ -1933,7 +1933,7 @@ html, body {
 
 .skill-answer-title {
   font-family: var(--font-display);
-  font-size: 46px;
+  font-size: 56px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.025em;
@@ -1941,7 +1941,7 @@ html, body {
 }
 
 .skill-answer-desc {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--text-secondary);
   line-height: 1.65;
   max-width: 580px;
@@ -1957,9 +1957,9 @@ html, body {
 .skill-tag {
   display: inline-flex;
   align-items: center;
-  padding: 7px 16px;
+  padding: 8px 18px;
   border-radius: 100px;
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-secondary);
   background: var(--bg);
