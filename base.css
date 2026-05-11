@@ -504,7 +504,8 @@ html, body {
    ============================================= */
 .speaker-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  /* left column: compact portrait/card, right column: main content */
+  grid-template-columns: minmax(200px, 0.6fr) minmax(0, 1.4fr);
   gap: 28px;
   align-items: start;
 }
@@ -579,20 +580,34 @@ html, body {
 }
 
 .speaker-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  align-items: start;
+  /* when used as the left portrait/card column */
+  display: block;
   align-self: start;
-  padding: 10px;
+  padding: 14px;
   margin-top: 10px;
-  max-width: 500px;
-  justify-self: end;
+  max-width: 360px;
+  justify-self: start;
   border: 1px solid var(--border-light);
-  border-radius: 28px;
+  border-radius: 18px;
   background: linear-gradient(180deg, rgba(66,133,244,0.03), rgba(52,168,83,0.02));
   box-shadow: 0 14px 34px rgba(32,33,36,0.05);
 }
+
+/* Portrait/card inside the gallery column */
+.speaker-portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.95));
+  box-shadow: 0 10px 20px rgba(32,33,36,0.04);
+}
+.speaker-portrait .speaker-avatar { width: 56px; height: 56px; font-size: 14px; overflow: hidden; }
+.speaker-portrait .speaker-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
+.speaker-portrait .speaker-name { font-size: 28px; }
+.speaker-portrait .speaker-role { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
 
 .gallery-photo {
   position: relative;

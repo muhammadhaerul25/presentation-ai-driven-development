@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="base.css" />
 </head>
 <body>
 
@@ -43,7 +43,7 @@
   <div class="slides-container" id="slidesContainer">
 
     <!-- ============================
-         SLIDE 1 — COVER
+         COVER
          ============================ -->
     <section class="slide slide-cover active" id="slide-1">
       <div class="slide-label">Cover</div>
@@ -103,20 +103,24 @@
     </section>
 
     <!-- ============================
-         SLIDE 2 — SPEAKER INTRO
+         SPEAKER INTRO
          ============================ -->
     <section class="slide slide-speaker" id="slide-2">
       <div class="slide-label">Speaker Introduction</div>
       <div class="slide-content speaker-layout">
-        <div class="speaker-main">
-          <div class="speaker-header">
-            <div class="speaker-avatar">MH</div>
-            <div class="speaker-info">
-              <h2 class="speaker-name">Muhammad Haerul</h2>
-              <p class="speaker-role">AI Engineer · 4 Years of Experience</p>
+        <!-- left column: portrait + name (moved into gallery slot to preserve layout classes) -->
+        <div class="speaker-gallery">
+          <div class="speaker-portrait">
+            <div class="speaker-avatar">
+              <img src="assets/images/muhammad haerul_formal photo.png" alt="Muhammad Haerul" />
             </div>
+            <h2 class="speaker-name">Muhammad Haerul</h2>
+            <p class="speaker-role">AI Engineer with 3 Years of Experience</p>
           </div>
+        </div>
 
+        <!-- right column: main content (education, experience, awards) -->
+        <div class="speaker-main">
           <div class="speaker-section speaker-education">
             <h4 class="section-label">Education</h4>
             <div class="timeline-list education-list">
@@ -174,32 +178,14 @@
             </div>
           </div>
         </div>
-
-        <div class="speaker-gallery">
-          <div class="gallery-photo gallery-photo-hero">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Working on a laptop" />
-          </div>
-          <div class="gallery-photo">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Developer desk setup" />
-          </div>
-          <div class="gallery-photo">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Team discussion" />
-          </div>
-          <div class="gallery-photo">
-            <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=900&q=80" alt="Code review" />
-          </div>
-          <div class="gallery-photo">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="Presentation in progress" />
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- ============================
-         SLIDE 3 — AGENDA
+         AGENDA
          ============================ -->
     <section class="slide slide-agenda" id="slide-3">
-      <div class="slide-label">Slide 3 — Agenda</div>
+      <div class="slide-label">Agenda</div>
       <div class="slide-content agenda-layout">
         <div class="agenda-header">
           <p class="agenda-eyebrow">What we'll cover today</p>
@@ -264,10 +250,10 @@
     </section>
 
     <!-- ============================
-         SLIDE 4 — MOST IMPORTANT LANGUAGE (2 steps)
+         MOST IMPORTANT LANGUAGE (2 steps)
          ============================ -->
     <section class="slide slide-reveal" id="slide-4" data-steps="2">
-      <div class="slide-label">Slide 4 — Most Important Language</div>
+      <div class="slide-label">Most Important Language</div>
 
       <!-- Step 1: Question only -->
       <div class="reveal-step step-1 active-step">
@@ -307,10 +293,10 @@
     </section>
 
     <!-- ============================
-         SLIDE 5 — WHY? (2 steps)
+         WHY? (2 steps)
          ============================ -->
     <section class="slide slide-reveal slide-reveal-dark" id="slide-5" data-steps="2">
-      <div class="slide-label">Slide 5 — Why Natural Language?</div>
+      <div class="slide-label">Why Natural Language?</div>
 
       <!-- Step 1: Question only -->
       <div class="reveal-step step-1 active-step">
@@ -340,10 +326,10 @@
     </section>
 
     <!-- ============================
-         SLIDE 6 — CHAPTER 1 TITLE
+         CHAPTER 1 TITLE
          ============================ -->
     <section class="slide slide-chapter" id="slide-6">
-      <div class="slide-label">Slide 6 — Chapter 1</div>
+      <div class="slide-label">Chapter 1</div>
       <div class="chapter-bg">
         <div class="chapter-bg-number">01</div>
       </div>
@@ -351,17 +337,17 @@
         <div class="chapter-badge">
           <span class="gdg-dot dot-blue"></span> Chapter 1
         </div>
-        <h2 class="chapter-heading">AI Changed the<br/>Software Development<br/>Industry!</h2>
+        <h2 class="chapter-heading">AI Changed the<br/>Software Development Industry!</h2>
         <p class="chapter-desc">"Chapter notes here"</p>
         <div class="chapter-accent-line"></div>
       </div>
     </section>
 
     <!-- ============================
-         SLIDE 7 — CHAPTER 2 TITLE
+         CHAPTER 2 TITLE
          ============================ -->
     <section class="slide slide-chapter chapter-red" id="slide-7">
-      <div class="slide-label">Slide 7 — Chapter 2</div>
+      <div class="slide-label">Chapter 2</div>
       <div class="chapter-bg">
         <div class="chapter-bg-number">02</div>
       </div>
@@ -376,10 +362,10 @@
     </section>
 
     <!-- ============================
-         SLIDE 8 — CHAPTER 3 TITLE
+         CHAPTER 3 TITLE
          ============================ -->
     <section class="slide slide-chapter chapter-yellow" id="slide-8">
-      <div class="slide-label">Slide 8 — Chapter 3</div>
+      <div class="slide-label">Chapter 3</div>
       <div class="chapter-bg">
         <div class="chapter-bg-number">03</div>
       </div>
@@ -394,10 +380,10 @@
     </section>
 
     <!-- ============================
-         SLIDE 9 — CHAPTER 4 TITLE
+         CHAPTER 4 TITLE
          ============================ -->
     <section class="slide slide-chapter chapter-green" id="slide-9">
-      <div class="slide-label">Slide 9 — Chapter 4</div>
+      <div class="slide-label">Chapter 4</div>
       <div class="chapter-bg">
         <div class="chapter-bg-number">04</div>
       </div>
@@ -412,10 +398,10 @@
     </section>
 
     <!-- ============================
-         SLIDE 10 — HANDS-ON
+         HANDS-ON
          ============================ -->
     <section class="slide slide-handson" id="slide-10">
-      <div class="slide-label">Slide 10 — Hands-On</div>
+      <div class="slide-label">Hands-On</div>
       <div class="handson-bg"></div>
       <div class="slide-content handson-layout">
         <div class="handson-badge">
@@ -431,7 +417,7 @@
          SLIDE 11 — CLOSING
          ============================ -->
     <section class="slide slide-closing" id="slide-11">
-      <div class="slide-label">Slide 11 — Closing</div>
+      <div class="slide-label">Closing</div>
       <div class="closing-bg">
         <div class="closing-dots"></div>
       </div>
@@ -472,6 +458,6 @@
   </div><!-- /slide-scaler -->
 
   <script src="scaler.js"></script>
-  <script src="script.js"></script>
+  <script src="base.js"></script>
 </body>
 </html>

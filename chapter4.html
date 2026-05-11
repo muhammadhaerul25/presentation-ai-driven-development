@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 4 — AI-Driven Development with Antigravity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="chapter4.css" />
+</head>
+<body>
+
+  <!-- Slide Scaler — Fixed 16:9 -->
+  <div class="slide-scaler" id="slideScaler">
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <div class="slide-counter" id="slideCounter">
+    <span class="counter-chapter">Ch.4</span>
+    <span class="divider">·</span>
+    <span id="currentSlide">1</span>
+    <span class="divider">/</span>
+    <span id="totalSlides">10</span>
+  </div>
+
+  <div class="nav-controls">
+    <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="nav-btn" id="nextBtn" onclick="nextSlide()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+
+  <button class="fullscreen-btn" onclick="toggleFullscreen()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+  </button>
+
+  <div class="slides-container" id="slidesContainer">
+
+    <!-- ============================
+         SLIDE C4-1 — AI-DRIVEN DEVELOPMENT DEFINITION
+         ============================ -->
+    <section class="slide slide-definition active" id="slide-1">
+      <div class="slide-label">What Is AI-Driven Development?</div>
+      <div class="def-bg">
+        <div class="def-grid"></div>
+        <div class="def-glow"></div>
+      </div>
+      <div class="slide-content def-layout">
+
+        <div class="def-left">
+          <div class="def-badge">
+            <span class="gdg-dot dot-green"></span> Chapter 4 · AI-Driven Development
+          </div>
+          <h2 class="def-title">AI-Driven<br/>Development</h2>
+          <blockquote class="def-quote">
+            "A methodology where AI actively participates in every stage of the software development lifecycle — from planning to deployment — while humans remain in control of decisions, quality, and direction."
+          </blockquote>
+          <div class="def-mindset">
+            <div class="def-mindset-label">Core Mindset</div>
+            <div class="def-mindset-items">
+              <div class="def-mindset-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Working <strong>with</strong> AI, not just <strong>using</strong> AI</span>
+              </div>
+              <div class="def-mindset-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Treat AI as a <strong>teammate</strong>, not just a tool</span>
+              </div>
+              <div class="def-mindset-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>You are the <strong>architect</strong>. AI is your most productive engineer.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="def-right">
+          <div class="def-formula-label">The Formula</div>
+          <div class="def-formula-card">
+            <div class="def-formula-eq">
+              <span class="def-f-main">AI-Driven Dev</span>
+              <span class="def-f-op">=</span>
+            </div>
+            <div class="def-formula-components">
+              <div class="def-f-comp" style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.05);">
+                <div class="def-f-comp-name" style="color:#4285F4;">Vibe Coding</div>
+                <div class="def-f-comp-desc">Build fast with AI through natural language</div>
+              </div>
+              <div class="def-f-plus">+</div>
+              <div class="def-f-comp" style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.05);">
+                <div class="def-f-comp-abbr" style="color:#EA4335;">SDD</div>
+                <div class="def-f-comp-name" style="color:#EA4335;">Specification-Driven</div>
+                <div class="def-f-comp-desc">AI works from clear, structured specs</div>
+              </div>
+              <div class="def-f-plus">+</div>
+              <div class="def-f-comp" style="border-color:rgba(251,188,4,0.35); background:rgba(251,188,4,0.05);">
+                <div class="def-f-comp-abbr" style="color:#9A7400;">TDD</div>
+                <div class="def-f-comp-name" style="color:#9A7400;">Test-Driven</div>
+                <div class="def-f-comp-desc">Tests validate AI output quality</div>
+              </div>
+              <div class="def-f-plus">+</div>
+              <div class="def-f-comp" style="border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.05);">
+                <div class="def-f-comp-abbr" style="color:#34A853;">HITL</div>
+                <div class="def-f-comp-name" style="color:#34A853;">Human-in-the-Loop</div>
+                <div class="def-f-comp-desc">Humans review and correct at every stage</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-2 — THREE-LAYER ARCHITECTURE
+         ============================ -->
+    <section class="slide slide-architecture" id="slide-2">
+      <div class="slide-label">AI-Driven Architecture — Three-Layer Collaboration</div>
+      <div class="arch-bg">
+        <div class="arch-dot-grid"></div>
+      </div>
+      <div class="slide-content arch-layout">
+
+        <div class="arch-header">
+          <p class="arch-eyebrow">How AI, Humans &amp; Agents Collaborate</p>
+          <h2 class="arch-title">Three-Layer<br/>Collaboration Model</h2>
+        </div>
+
+        <div class="arch-body">
+
+          <div class="arch-layers">
+            <div class="arch-layer arch-layer-human">
+              <div class="arch-layer-icon" style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+              </div>
+              <div class="arch-layer-content">
+                <div class="arch-layer-label" style="color:#4285F4;">HUMAN</div>
+                <div class="arch-layer-title">Architect · Product Owner</div>
+                <div class="arch-layer-desc">Decides, Directs, Reviews</div>
+                <div class="arch-layer-pills">
+                  <span class="arch-pill" style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">Sets Goals</span>
+                  <span class="arch-pill" style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">Makes Decisions</span>
+                  <span class="arch-pill" style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">Final Review</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="arch-connector">
+              <div class="arch-conn-line"></div>
+              <div class="arch-conn-arrow">↓</div>
+              <div class="arch-conn-line"></div>
+            </div>
+
+            <div class="arch-layer arch-layer-models">
+              <div class="arch-layer-icon" style="background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.3);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div class="arch-layer-content">
+                <div class="arch-layer-label" style="color:#9A7400;">MODELS</div>
+                <div class="arch-layer-title">LLMs · Vision · Embedding</div>
+                <div class="arch-layer-desc">Generates, Analyzes, Suggests</div>
+                <div class="arch-layer-pills">
+                  <span class="arch-pill" style="color:#9A7400; border-color:rgba(251,188,4,0.35); background:rgba(251,188,4,0.07);">Generates Code</span>
+                  <span class="arch-pill" style="color:#9A7400; border-color:rgba(251,188,4,0.35); background:rgba(251,188,4,0.07);">Architecture Advice</span>
+                  <span class="arch-pill" style="color:#9A7400; border-color:rgba(251,188,4,0.35); background:rgba(251,188,4,0.07);">Produces Docs</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="arch-connector">
+              <div class="arch-conn-line"></div>
+              <div class="arch-conn-arrow">↓</div>
+              <div class="arch-conn-line"></div>
+            </div>
+
+            <div class="arch-layer arch-layer-agents">
+              <div class="arch-layer-icon" style="background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+              </div>
+              <div class="arch-layer-content">
+                <div class="arch-layer-label" style="color:#34A853;">AGENTS</div>
+                <div class="arch-layer-title">Coding · Test · Review · Deploy</div>
+                <div class="arch-layer-desc">Executes, Automates, Iterates</div>
+                <div class="arch-layer-pills">
+                  <span class="arch-pill" style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">Write → Test → Fix</span>
+                  <span class="arch-pill" style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">Autonomous Tasks</span>
+                  <span class="arch-pill" style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">Multi-Step Loops</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="arch-roles-panel">
+            <div class="arch-roles-label">Roles in the Loop</div>
+            <div class="arch-role-card" style="border-color:rgba(66,133,244,0.2); background:rgba(66,133,244,0.03);">
+              <div class="arch-role-dot" style="background:#4285F4;"></div>
+              <div>
+                <div class="arch-role-who" style="color:#4285F4;">Human</div>
+                <div class="arch-role-desc">Sets goals, defines requirements, makes architectural decisions, does final review</div>
+              </div>
+            </div>
+            <div class="arch-role-card" style="border-color:rgba(251,188,4,0.25); background:rgba(251,188,4,0.03);">
+              <div class="arch-role-dot" style="background:#FBBC04;"></div>
+              <div>
+                <div class="arch-role-who" style="color:#9A7400;">Models</div>
+                <div class="arch-role-desc">Generates code, explains logic, suggests architecture, produces documentation</div>
+              </div>
+            </div>
+            <div class="arch-role-card" style="border-color:rgba(52,168,83,0.2); background:rgba(52,168,83,0.03);">
+              <div class="arch-role-dot" style="background:#34A853;"></div>
+              <div>
+                <div class="arch-role-who" style="color:#34A853;">Agents</div>
+                <div class="arch-role-desc">Executes multi-step tasks: write → test → fix → repeat autonomously</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-3 — TOOLS (ANTIGRAVITY + MARKET)
+         ============================ -->
+    <section class="slide slide-tools" id="slide-3">
+      <div class="slide-label">AI-Driven Development Tools</div>
+      <div class="tools-bg">
+        <div class="tools-dot-grid"></div>
+        <div class="tools-glow"></div>
+      </div>
+      <div class="slide-content tools-layout">
+
+        <div class="tools-left">
+          <div class="tools-badge">
+            <span class="gdg-dot dot-green"></span> Featured Tool
+          </div>
+          <h2 class="tools-title">Antigravity</h2>
+          <p class="tools-def">An AI-powered IDE and development platform built for AI-Driven Development — combining a coding agent, context engine, and workflow automation in one environment.</p>
+
+          <div class="tools-features">
+            <div class="tools-feat-label">Key Features</div>
+            <div class="tools-feat-list">
+              <div class="tools-feat-item">
+                <div class="tools-feat-icon" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.07);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div>
+                  <div class="tools-feat-name">Context Engine</div>
+                  <div class="tools-feat-desc">Feed your entire codebase, docs, and ERD to the AI</div>
+                </div>
+              </div>
+              <div class="tools-feat-item">
+                <div class="tools-feat-icon" style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.07);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V9"/><path d="M12 12v3"/></svg>
+                </div>
+                <div>
+                  <div class="tools-feat-name">Task Planning</div>
+                  <div class="tools-feat-desc">Break PRDs into structured, executable tasks</div>
+                </div>
+              </div>
+              <div class="tools-feat-item">
+                <div class="tools-feat-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="2"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+                </div>
+                <div>
+                  <div class="tools-feat-name">Coding Agent</div>
+                  <div class="tools-feat-desc">Writes, edits, and fixes code autonomously</div>
+                </div>
+              </div>
+              <div class="tools-feat-item">
+                <div class="tools-feat-icon" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.07);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                </div>
+                <div>
+                  <div class="tools-feat-name">Checkpoint System</div>
+                  <div class="tools-feat-desc">Review and approve before the agent proceeds</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tools-right">
+          <div class="tools-market-label">Alternatives in the Market</div>
+          <div class="tools-market-table">
+            <div class="tools-table-header">
+              <span>Tool</span>
+              <span>Type</span>
+              <span>Best For</span>
+            </div>
+            <div class="tools-table-row tools-row-featured">
+              <div class="tools-row-name">
+                <div class="tools-row-dot" style="background:#34A853;"></div>
+                <span>Antigravity</span>
+                <span class="tools-row-badge">Featured</span>
+              </div>
+              <span class="tools-row-type">Platform</span>
+              <span class="tools-row-best">Full AI-Driven Development</span>
+            </div>
+            <div class="tools-table-row">
+              <div class="tools-row-name">
+                <div class="tools-row-dot" style="background:#4285F4;"></div>
+                <span>Cursor</span>
+              </div>
+              <span class="tools-row-type">IDE</span>
+              <span class="tools-row-best">AI-assisted coding</span>
+            </div>
+            <div class="tools-table-row">
+              <div class="tools-row-name">
+                <div class="tools-row-dot" style="background:#4285F4;"></div>
+                <span>Windsurf</span>
+              </div>
+              <span class="tools-row-type">IDE</span>
+              <span class="tools-row-best">Agentic coding</span>
+            </div>
+            <div class="tools-table-row">
+              <div class="tools-row-name">
+                <div class="tools-row-dot" style="background:#EA4335;"></div>
+                <span>Devin</span>
+              </div>
+              <span class="tools-row-type">Agent</span>
+              <span class="tools-row-best">Fully autonomous tasks</span>
+            </div>
+            <div class="tools-table-row">
+              <div class="tools-row-name">
+                <div class="tools-row-dot" style="background:#9AA0A6;"></div>
+                <span>GitHub Copilot</span>
+              </div>
+              <span class="tools-row-type">Assistant</span>
+              <span class="tools-row-best">Autocomplete + chat</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-4 — STAGES OVERVIEW
+         ============================ -->
+    <section class="slide slide-stages-overview" id="slide-4">
+      <div class="slide-label">AI-Driven Development — 5 Stages</div>
+      <div class="stovw-bg">
+        <div class="stovw-dot-grid"></div>
+      </div>
+      <div class="slide-content stovw-layout">
+
+        <div class="stovw-header">
+          <p class="stovw-eyebrow">The Complete Methodology</p>
+          <h2 class="stovw-title">AI-Driven Development Stages</h2>
+        </div>
+
+        <div class="stovw-timeline">
+
+          <div class="stovw-stage">
+            <div class="stovw-stage-num" style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2); color:#4285F4;">01</div>
+            <div class="stovw-stage-body">
+              <div class="stovw-stage-icon" style="border-color:rgba(66,133,244,0.2); background:rgba(66,133,244,0.06);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h8M8 17h5"/></svg>
+              </div>
+              <div>
+                <div class="stovw-stage-name">Planning &amp; Requirements</div>
+                <div class="stovw-stage-deliverable">PRD</div>
+                <div class="stovw-stage-desc">Product Requirements Document with user stories and acceptance criteria</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stovw-arrow">→</div>
+
+          <div class="stovw-stage">
+            <div class="stovw-stage-num" style="background:rgba(234,67,53,0.06); border-color:rgba(234,67,53,0.2); color:#EA4335;">02</div>
+            <div class="stovw-stage-body">
+              <div class="stovw-stage-icon" style="border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.06);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
+              </div>
+              <div>
+                <div class="stovw-stage-name">Architecture &amp; Design</div>
+                <div class="stovw-stage-deliverable">System Arch Doc</div>
+                <div class="stovw-stage-desc">Tech stack decisions, ERD, API specs, infrastructure layout</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stovw-arrow">→</div>
+
+          <div class="stovw-stage">
+            <div class="stovw-stage-num" style="background:rgba(251,188,4,0.06); border-color:rgba(251,188,4,0.3); color:#9A7400;">03</div>
+            <div class="stovw-stage-body">
+              <div class="stovw-stage-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <div class="stovw-stage-name">Implementation</div>
+                <div class="stovw-stage-deliverable">Working Codebase</div>
+                <div class="stovw-stage-desc">Layer-by-layer build: Frontend → Backend → AI integration</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stovw-arrow">→</div>
+
+          <div class="stovw-stage">
+            <div class="stovw-stage-num" style="background:rgba(52,168,83,0.06); border-color:rgba(52,168,83,0.2); color:#34A853;">04</div>
+            <div class="stovw-stage-body">
+              <div class="stovw-stage-icon" style="border-color:rgba(52,168,83,0.2); background:rgba(52,168,83,0.06);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+              </div>
+              <div>
+                <div class="stovw-stage-name">Testing</div>
+                <div class="stovw-stage-deliverable">Test Suite + Bug Report</div>
+                <div class="stovw-stage-desc">Unit, integration, AI feature tests, and UAT</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stovw-arrow">→</div>
+
+          <div class="stovw-stage">
+            <div class="stovw-stage-num" style="background:rgba(66,133,244,0.06); border-color:rgba(66,133,244,0.2); color:#4285F4;">05</div>
+            <div class="stovw-stage-body">
+              <div class="stovw-stage-icon" style="border-color:rgba(66,133,244,0.2); background:rgba(66,133,244,0.06);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+              <div>
+                <div class="stovw-stage-name">Review &amp; Iterate</div>
+                <div class="stovw-stage-deliverable">Refined Product</div>
+                <div class="stovw-stage-desc">Code quality, performance, AI output quality, product alignment</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="stovw-insight">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          <span>Each stage ends with a <strong>Checkpoint</strong> — review AI output before proceeding. HITL is applied at every transition.</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-5 — STAGE 1 & 2: PLANNING & ARCHITECTURE
+         ============================ -->
+    <section class="slide slide-stage-detail" id="slide-5">
+      <div class="slide-label">Stage 01 &amp; 02 — Planning &amp; Architecture</div>
+      <div class="slide-content stage-detail-layout">
+
+        <!-- Stage 1 -->
+        <div class="stage-col">
+          <div class="stage-col-header">
+            <div class="stage-num-badge" style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.25);">Stage 01</div>
+            <h3 class="stage-col-title">Planning &amp; Requirements</h3>
+            <div class="stage-deliverable-tag" style="color:#4285F4; background:rgba(66,133,244,0.06); border-color:rgba(66,133,244,0.2);">📄 Deliverable: PRD</div>
+          </div>
+          <div class="stage-tree">
+            <div class="tree-label">PRD Structure</div>
+            <div class="tree-block">
+              <div class="tree-item tree-item-root">
+                <span class="tree-icon">📁</span>
+                <span class="tree-name">Product Overview</span>
+              </div>
+              <div class="tree-item tree-item-child">
+                <span class="tree-icon">├─</span>
+                <span class="tree-name">Problem Statement</span>
+              </div>
+              <div class="tree-item tree-item-child">
+                <span class="tree-icon">├─</span>
+                <span class="tree-name">Target Users</span>
+              </div>
+              <div class="tree-item tree-item-child">
+                <span class="tree-icon">└─</span>
+                <span class="tree-name">Success Metrics</span>
+              </div>
+              <div class="tree-item tree-item-root">
+                <span class="tree-icon">📁</span>
+                <span class="tree-name">Features &amp; User Stories</span>
+              </div>
+              <div class="tree-item tree-item-child">
+                <span class="tree-icon">├─</span>
+                <span class="tree-name">User Story + Acceptance Criteria</span>
+              </div>
+              <div class="tree-item tree-item-child">
+                <span class="tree-icon">└─</span>
+                <span class="tree-name">Priority (P0/P1/P2)</span>
+              </div>
+              <div class="tree-item tree-item-root">
+                <span class="tree-icon">📄</span>
+                <span class="tree-name">Out of Scope + Constraints</span>
+              </div>
+            </div>
+          </div>
+          <div class="stage-ai-help">
+            <div class="stage-ai-icon">✦</div>
+            <div class="stage-ai-text"><strong>How AI helps:</strong> Generate PRD structure, refine user stories, identify edge cases, suggest acceptance criteria — from a single paragraph brief.</div>
+          </div>
+        </div>
+
+        <div class="stage-divider"></div>
+
+        <!-- Stage 2 -->
+        <div class="stage-col">
+          <div class="stage-col-header">
+            <div class="stage-num-badge" style="color:#EA4335; background:rgba(234,67,53,0.06); border-color:rgba(234,67,53,0.25);">Stage 02</div>
+            <h3 class="stage-col-title">Architecture &amp; Design</h3>
+            <div class="stage-deliverable-tag" style="color:#EA4335; background:rgba(234,67,53,0.05); border-color:rgba(234,67,53,0.2);">🏗️ Deliverable: System Arch Doc</div>
+          </div>
+          <div class="stage-tree">
+            <div class="tree-label">Architecture Layers</div>
+            <div class="tree-block">
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#4285F4;">◆</span><span class="tree-name">Frontend — React.js / Next.js + Tailwind</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#EA4335;">◆</span><span class="tree-name">Backend — Express.js / FastAPI + JWT</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#FBBC04;">◆</span><span class="tree-name">AI API — Gemini / LangChain / RAG</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#34A853;">◆</span><span class="tree-name">Infrastructure — PostgreSQL / GCS / Docker</span></div>
+            </div>
+          </div>
+          <div class="stage-ai-help">
+            <div class="stage-ai-icon">✦</div>
+            <div class="stage-ai-text"><strong>How AI helps:</strong> Propose architecture options, generate ERDs, produce OpenAPI specs, and identify bottlenecks before any code is written.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-6 — STAGE 3: IMPLEMENTATION
+         ============================ -->
+    <section class="slide slide-implementation" id="slide-6">
+      <div class="slide-label">Stage 03 — Implementation</div>
+      <div class="impl-bg">
+        <div class="impl-grid"></div>
+      </div>
+      <div class="slide-content impl-layout">
+
+        <div class="impl-left">
+          <div class="stage-num-badge" style="color:#9A7400; background:rgba(251,188,4,0.07); border-color:rgba(251,188,4,0.3);">Stage 03</div>
+          <h2 class="impl-title">Implementation</h2>
+          <p class="impl-def">Build layer by layer. Complete one task, run a checkpoint, then proceed. Never give the agent multiple tasks at once.</p>
+
+          <div class="impl-rule-card">
+            <div class="impl-rule-icon">⚠️</div>
+            <div class="impl-rule-text">
+              <strong>Golden Rule:</strong> Complete one task → Run checkpoint → Then proceed. Never task the agent with multiple things at once.
+            </div>
+          </div>
+
+          <div class="impl-ai-help">
+            <div class="stage-ai-icon" style="color:#9A7400;">✦</div>
+            <div class="stage-ai-text"><strong>How AI helps:</strong> Generate boilerplate, write functions from specs, suggest refactors, explain unfamiliar code, and auto-fix errors — one task at a time.</div>
+          </div>
+        </div>
+
+        <div class="impl-right">
+          <div class="impl-pipeline-label">Implementation Order</div>
+          <div class="impl-pipeline">
+
+            <div class="impl-layer impl-layer-frontend">
+              <div class="impl-layer-header" style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.05);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+                Layer 1: Frontend
+              </div>
+              <div class="impl-tasks">
+                <div class="impl-task"><span class="impl-task-num">1.1</span> Setup project &amp; routing</div>
+                <div class="impl-task"><span class="impl-task-num">1.2</span> Build UI components</div>
+                <div class="impl-task"><span class="impl-task-num">1.3</span> Connect to API</div>
+                <div class="impl-checkpoint">✅ Checkpoint: UI renders correctly</div>
+              </div>
+            </div>
+
+            <div class="impl-connector">↓</div>
+
+            <div class="impl-layer impl-layer-backend">
+              <div class="impl-layer-header" style="color:#EA4335; border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.05);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                Layer 2: Backend
+              </div>
+              <div class="impl-tasks">
+                <div class="impl-task"><span class="impl-task-num">2.1</span> Setup server &amp; database</div>
+                <div class="impl-task"><span class="impl-task-num">2.2</span> Implement API endpoints</div>
+                <div class="impl-task"><span class="impl-task-num">2.3</span> Add authentication</div>
+                <div class="impl-checkpoint">✅ Checkpoint: API responds correctly</div>
+              </div>
+            </div>
+
+            <div class="impl-connector">↓</div>
+
+            <div class="impl-layer impl-layer-ai">
+              <div class="impl-layer-header" style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.05);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Layer 3: AI Integration
+              </div>
+              <div class="impl-tasks">
+                <div class="impl-task"><span class="impl-task-num">3.1</span> Connect to Gemini API</div>
+                <div class="impl-task"><span class="impl-task-num">3.2</span> Implement AI feature logic</div>
+                <div class="impl-task"><span class="impl-task-num">3.3</span> Test AI responses</div>
+                <div class="impl-checkpoint">✅ Checkpoint: AI features work end-to-end</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-7 — STAGE 4 & 5: TESTING & REVIEW
+         ============================ -->
+    <section class="slide slide-stage-detail slide-testing" id="slide-7">
+      <div class="slide-label">Stage 04 &amp; 05 — Testing &amp; Review</div>
+      <div class="slide-content stage-detail-layout">
+
+        <!-- Stage 4 -->
+        <div class="stage-col">
+          <div class="stage-col-header">
+            <div class="stage-num-badge" style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.25);">Stage 04</div>
+            <h3 class="stage-col-title">Testing</h3>
+            <div class="stage-deliverable-tag" style="color:#34A853; background:rgba(52,168,83,0.05); border-color:rgba(52,168,83,0.2);">🧪 Deliverable: Test Suite + Bug Report</div>
+          </div>
+          <div class="stage-tree">
+            <div class="tree-label">Testing Strategy</div>
+            <div class="tree-block">
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#4285F4;">◆</span><span class="tree-name">Unit Tests — test each function in isolation</span></div>
+              <div class="tree-item tree-item-child"><span class="tree-icon">└─</span><span class="tree-name">AI generates test cases from code</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#EA4335;">◆</span><span class="tree-name">Integration Tests — test API endpoints end-to-end</span></div>
+              <div class="tree-item tree-item-child"><span class="tree-icon">└─</span><span class="tree-name">AI writes test scenarios from PRD</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#FBBC04;">◆</span><span class="tree-name">AI Feature Tests — prompt accuracy &amp; edge cases</span></div>
+              <div class="tree-item tree-item-child"><span class="tree-icon">└─</span><span class="tree-name">Human evaluates output quality (HITL)</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#34A853;">◆</span><span class="tree-name">UAT — real user flows tested manually</span></div>
+            </div>
+          </div>
+          <div class="stage-ai-help">
+            <div class="stage-ai-icon">✦</div>
+            <div class="stage-ai-text"><strong>How AI helps:</strong> Generate unit tests from functions, write integration scripts, suggest edge cases from acceptance criteria, produce bug reports.</div>
+          </div>
+        </div>
+
+        <div class="stage-divider"></div>
+
+        <!-- Stage 5 -->
+        <div class="stage-col">
+          <div class="stage-col-header">
+            <div class="stage-num-badge" style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.25);">Stage 05</div>
+            <h3 class="stage-col-title">Review &amp; Iterate</h3>
+            <div class="stage-deliverable-tag" style="color:#4285F4; background:rgba(66,133,244,0.05); border-color:rgba(66,133,244,0.2);">🔍 Deliverable: Refined Product</div>
+          </div>
+          <div class="stage-tree">
+            <div class="tree-label">Review Checklist</div>
+            <div class="tree-block">
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#4285F4;">◆</span><span class="tree-name">Code Quality</span></div>
+              <div class="tree-item tree-item-child"><span class="tree-icon">├─</span><span class="tree-name">Readable &amp; maintainable?</span></div>
+              <div class="tree-item tree-item-child"><span class="tree-icon">└─</span><span class="tree-name">Security vulnerabilities?</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#FBBC04;">◆</span><span class="tree-name">Performance</span></div>
+              <div class="tree-item tree-item-child"><span class="tree-icon">└─</span><span class="tree-name">Response time within acceptable range?</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#34A853;">◆</span><span class="tree-name">AI Output Quality</span></div>
+              <div class="tree-item tree-item-child"><span class="tree-icon">└─</span><span class="tree-name">Prompts and context well-engineered?</span></div>
+              <div class="tree-item tree-item-root"><span class="tree-icon" style="color:#EA4335;">◆</span><span class="tree-name">Product Alignment — meets PRD?</span></div>
+            </div>
+          </div>
+          <div class="stage-ai-help">
+            <div class="stage-ai-icon">✦</div>
+            <div class="stage-ai-text"><strong>How AI helps:</strong> Perform code review, suggest optimizations, identify security issues — human makes the final call.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-8 — BEST PRACTICES
+         ============================ -->
+    <section class="slide slide-best-practices" id="slide-8">
+      <div class="slide-label">Best Practices for AI-Driven Development</div>
+      <div class="bp-bg">
+        <div class="bp-dot-grid"></div>
+        <div class="bp-glow"></div>
+      </div>
+      <div class="slide-content bp-layout">
+
+        <div class="bp-header">
+          <p class="bp-eyebrow">8 Rules Every AI-Driven Developer Should Follow</p>
+          <h2 class="bp-title">Best Practices</h2>
+        </div>
+
+        <div class="bp-grid">
+
+          <div class="bp-card">
+            <div class="bp-card-num">01</div>
+            <div class="bp-card-content">
+              <div class="bp-card-title">Break complex tasks into small tasks with checkpoints</div>
+              <div class="bp-card-desc">Don't give the agent "build the entire backend." Give it one endpoint. Review it. Then proceed.</div>
+            </div>
+          </div>
+
+          <div class="bp-card">
+            <div class="bp-card-num">02</div>
+            <div class="bp-card-content">
+              <div class="bp-card-title">Complete one task at a time — never run tasks in parallel</div>
+              <div class="bp-card-desc">Parallel tasks cause conflicts, overwritten files, and untraceable bugs. Sequential is safer and faster.</div>
+            </div>
+          </div>
+
+          <div class="bp-card">
+            <div class="bp-card-num">03</div>
+            <div class="bp-card-content">
+              <div class="bp-card-title">Feed rich, structured context — not vague instructions</div>
+              <div class="bp-card-desc">The more context the AI has (PRD, ERD, code, error logs), the better its output. Context is everything.</div>
+            </div>
+          </div>
+
+          <div class="bp-card">
+            <div class="bp-card-num">04</div>
+            <div class="bp-card-content">
+              <div class="bp-card-title">Always review AI-generated code before merging</div>
+              <div class="bp-card-desc">AI is fast, but not always correct. Apply HITL at every checkpoint. You are the last line of defense.</div>
+            </div>
+          </div>
+
+          <div class="bp-card">
+            <div class="bp-card-num">05</div>
+            <div class="bp-card-content">
+              <div class="bp-card-title">Use version control religiously — commit before every agent task</div>
+              <div class="bp-card-desc">If the agent breaks something, you need a clean rollback point. Commit before every new task.</div>
+            </div>
+          </div>
+
+          <div class="bp-card">
+            <div class="bp-card-num">06</div>
+            <div class="bp-card-content">
+              <div class="bp-card-title">Keep your prompts inside the codebase as documentation</div>
+              <div class="bp-card-desc">Store your PRD, specs, and key prompts in a <code>/docs</code> or <code>/ai</code> folder. This becomes the source of truth.</div>
+            </div>
+          </div>
+
+          <div class="bp-card">
+            <div class="bp-card-num">07</div>
+            <div class="bp-card-content">
+              <div class="bp-card-title">When the agent gets stuck, reset the context</div>
+              <div class="bp-card-desc">A confused agent produces garbage. Start a fresh session with a clean, focused prompt.</div>
+            </div>
+          </div>
+
+          <div class="bp-card">
+            <div class="bp-card-num">08</div>
+            <div class="bp-card-content">
+              <div class="bp-card-title">Test AI features with real-world inputs, not just ideal cases</div>
+              <div class="bp-card-desc">AI outputs are unpredictable with edge case inputs. Always test with messy, unexpected data before shipping.</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-9 — THE MINDSET SHIFT
+         ============================ -->
+    <section class="slide slide-mindset" id="slide-9">
+      <div class="slide-label">The AI-Driven Developer Mindset</div>
+      <div class="mindset-bg">
+        <div class="mindset-grid"></div>
+        <div class="mindset-glow-l"></div>
+        <div class="mindset-glow-r"></div>
+      </div>
+      <div class="slide-content mindset-layout">
+
+        <div class="mindset-header">
+          <p class="mindset-eyebrow">From Old to New</p>
+          <h2 class="mindset-title">The AI-Driven Developer<br/>Mindset</h2>
+        </div>
+
+        <div class="mindset-table">
+          <div class="mindset-col mindset-col-old">
+            <div class="mindset-col-badge mindset-old-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Old Mindset
+            </div>
+            <div class="mindset-items">
+              <div class="mindset-item mindset-item-old">Write every line of code</div>
+              <div class="mindset-item mindset-item-old">Fix bugs manually</div>
+              <div class="mindset-item mindset-item-old">Work alone</div>
+              <div class="mindset-item mindset-item-old">Speed = typing fast</div>
+              <div class="mindset-item mindset-item-old">Code is the product</div>
+            </div>
+          </div>
+
+          <div class="mindset-arrows">
+            <div class="mindset-arrow">→</div>
+            <div class="mindset-arrow">→</div>
+            <div class="mindset-arrow">→</div>
+            <div class="mindset-arrow">→</div>
+            <div class="mindset-arrow">→</div>
+          </div>
+
+          <div class="mindset-col mindset-col-new">
+            <div class="mindset-col-badge mindset-new-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              New Mindset
+            </div>
+            <div class="mindset-items">
+              <div class="mindset-item mindset-item-new"><span class="mindset-highlight">Direct</span> and review</div>
+              <div class="mindset-item mindset-item-new"><span class="mindset-highlight">Prompt</span> and verify</div>
+              <div class="mindset-item mindset-item-new"><span class="mindset-highlight">Collaborate</span> with AI</div>
+              <div class="mindset-item mindset-item-new">Speed = <span class="mindset-highlight">prompting smart</span></div>
+              <div class="mindset-item mindset-item-new"><span class="mindset-highlight">Outcome</span> is the product</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mindset-quote">
+          <div class="mindset-quote-mark">"</div>
+          <blockquote>The best AI-Driven developers are not the ones who know every syntax. They are the ones who think clearly, communicate precisely, and review critically.</blockquote>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         SLIDE C4-10 — CLOSING REVEAL (2 steps)
+         ============================ -->
+    <section class="slide slide-ch4-closing" id="slide-10" data-steps="2">
+      <div class="slide-label">What We've Learned</div>
+
+      <!-- Step 1 -->
+      <div class="reveal-step step-1 active-step">
+        <div class="reveal-bg">
+          <div class="ch4-dot-grid"></div>
+        </div>
+        <div class="slide-content reveal-center">
+          <h2 class="reveal-question" style="color:#202124;">
+            Now You Have All the<br/>
+            <span style="color:#34A853;">Tools</span>,
+            <span style="color:#4285F4;">Techniques</span> &amp;<br/>
+            <span style="color:#EA4335;">Methodology</span>
+          </h2>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="reveal-step step-2">
+        <div class="reveal-bg">
+          <div class="ch4-dot-grid"></div>
+        </div>
+        <div class="slide-content reveal-center">
+          <h2 class="reveal-question reveal-question-sm" style="color:#5F6368;">
+            Now You Have All the <span style="color:#34A853;">Tools</span>, <span style="color:#4285F4;">Techniques</span> &amp; <span style="color:#EA4335;">Methodology</span>
+          </h2>
+          <div class="ch4-answer-block">
+            <div class="ch4-answer-heading">Time to Build.</div>
+            <div class="ch4-pills">
+              <span class="ch4-pill" style="color:#4285F4; border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.06);">🧠 Prompt Engineering</span>
+              <span class="ch4-pill" style="color:#34A853; border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.06);">🌐 Gemini API</span>
+              <span class="ch4-pill" style="color:#9A7400; border-color:rgba(251,188,4,0.35); background:rgba(251,188,4,0.07);">⚡ Antigravity</span>
+              <span class="ch4-pill" style="color:#EA4335; border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.06);">🔁 HITL</span>
+            </div>
+            <div class="ch4-cta">
+              <span class="ch4-cta-text">Build with AI · GDGoC Makassar 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div><!-- /slides-container -->
+
+  </div><!-- /slide-scaler -->
+
+  <script src="scaler.js"></script>
+  <script src="chapter4.js"></script>
+</body>
+</html>
