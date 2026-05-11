@@ -156,5 +156,54 @@ function debounce(fn, wait) {
   };
 }
 
+// ── Vibe Video — Autoplay + Loop ─────────────
+// Twitter/X embeds can't autoplay. We use the fxtwitter API
+// to resolve the real .mp4 URL, then drive a native <video>.
+function setupVibeVideo() {
+  const video    = document.getElementById('vibeVideo');
+  const fallback = document.getElementById('vibeFallback');
+  if (!video) return;
+
+  const TWEET_ID = '1924399746447269963';
+
+  // Candidates: fxtwitter JSON API → actual mp4 URL
+  const apiUrl = `https://api.fxtwitter.com/status/${TWEET_ID}`;
+
+  fetch(apiUrl)
+    .then(r => r.json())
+    .then(data => {
+      // fxtwitter returns tweet.media.videos[0].url for video tweets
+      const mp4 = data?.tweet?.media?.videos?.[0]?.url
+                || data?.tweet?.media?.all?.[0]?.url;
+      if (mp4) {
+        video.src = mp4;
+        video.load();
+        video.play().catch(() => {});
+        fallback.style.display = 'none';
+      } else {
+        showFallback();
+      }
+    })
+    .catch(() => showFallback());
+
+  // Also listen for native video error just in case
+  video.addEventListener('error', showFallback);
+
+  // Give it 5s before showing fallback
+  const timer = setTimeout(showFallback, 5000);
+  video.addEventListener('canplay', () => {
+    clearTimeout(timer);
+    fallback.style.display = 'none';
+    video.play().catch(() => {});
+  });
+
+  function showFallback() {
+    clearTimeout(timer);
+    video.style.display = 'none';
+    fallback.style.display = 'flex';
+  }
+}
+
 // ── Start ─────────────────────────────────────
 init();
+setupVibeVideo();
