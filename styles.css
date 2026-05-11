@@ -336,7 +336,7 @@ html, body {
 
 .cover-title {
   font-family: var(--font-display);
-  font-size: 68px;
+  font-size: 86px;
   font-weight: 700;
   line-height: 1.08;
   color: var(--text-primary);
@@ -364,7 +364,7 @@ html, body {
 
 .cover-subtitle {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 33px;
   font-weight: 400;
   color: var(--text-secondary);
   margin-top: 20px;
@@ -372,7 +372,7 @@ html, body {
 }
 
 .cover-presenter {
-  font-size: 15px;
+  font-size: 19px;
   color: var(--text-muted);
   margin-top: 10px;
 }
@@ -380,9 +380,63 @@ html, body {
 
 .cover-tags {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.cover-tags-row {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 32px;
+}
+
+.cover-tags .tag {
+  padding: 8px 21px;
+  font-size: 20px;
+}
+
+.cover-tags-row:nth-child(1) .tag-red {
+  background: rgba(234, 67, 53, 0.12);
+  color: #D93025;
+  border-color: rgba(234, 67, 53, 0.28);
+}
+
+.cover-tags-row:nth-child(1) .tag-green {
+  background: rgba(52, 168, 83, 0.12);
+  color: #1E8E3E;
+  border-color: rgba(52, 168, 83, 0.28);
+}
+
+.cover-tags-row:nth-child(2) .tag {
+  background: rgba(66, 133, 244, 0.10);
+  color: #2F6AE5;
+  border-color: rgba(66, 133, 244, 0.24);
+}
+
+.cover-tags-row:nth-child(3) .tag {
+  background: rgba(124, 58, 237, 0.10);
+  color: #7C3AED;
+  border-color: rgba(124, 58, 237, 0.24);
+}
+
+.cover-tags .tag-google-solid {
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+.cover-tags-row:nth-child(4) .tag-google-solid:nth-child(1) {
+  background: var(--blue);
+}
+
+.cover-tags-row:nth-child(4) .tag-google-solid:nth-child(2) {
+  background: var(--red);
+}
+
+.cover-tags-row:nth-child(4) .tag-google-solid:nth-child(3) {
+  background: var(--green);
 }
 
 .cover-visual {
@@ -449,15 +503,23 @@ html, body {
    SLIDE 2 — SPEAKER
    ============================================= */
 .speaker-layout {
-  gap: 0;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.speaker-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .speaker-header {
   display: flex;
   align-items: center;
   gap: 28px;
-  padding-bottom: 40px;
+  padding-bottom: 28px;
   padding-top: 16px;
 }
 
@@ -501,21 +563,71 @@ html, body {
 }
 
 .speaker-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 0 0 36px;
-}
-
-.speaker-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  flex: 1;
-  justify-content: flex-start;
+  display: none;
 }
 
 .speaker-section {
-  padding-bottom: 36px;
+  padding-bottom: 32px;
+}
+
+.speaker-education {
+  padding-bottom: 28px;
+}
+
+.education-list {
+  max-width: 760px;
+}
+
+.speaker-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: start;
+  align-self: start;
+  padding: 10px;
+  margin-top: 10px;
+  max-width: 500px;
+  justify-self: end;
+  border: 1px solid var(--border-light);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(66,133,244,0.03), rgba(52,168,83,0.02));
+  box-shadow: 0 14px 34px rgba(32,33,36,0.05);
+}
+
+.gallery-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 102px;
+  background: linear-gradient(135deg, rgba(66,133,244,0.08), rgba(52,168,83,0.08));
+  box-shadow: 0 8px 18px rgba(32,33,36,0.08);
+}
+
+.gallery-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,15,15,0.02) 0%, rgba(15,15,15,0.24) 100%);
+  pointer-events: none;
+}
+
+.gallery-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.01);
+}
+
+.speaker-gallery .gallery-photo:nth-child(1) img { object-position: center top; }
+.speaker-gallery .gallery-photo:nth-child(2) img { object-position: center center; }
+.speaker-gallery .gallery-photo:nth-child(3) img { object-position: center 35%; }
+.speaker-gallery .gallery-photo:nth-child(4) img { object-position: center 25%; }
+.speaker-gallery .gallery-photo:nth-child(5) img { object-position: center 40%; }
+
+.gallery-photo-hero {
+  grid-row: span 2;
+  min-height: 216px;
 }
 
 .section-label {

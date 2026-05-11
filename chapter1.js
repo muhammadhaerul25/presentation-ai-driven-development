@@ -148,6 +148,7 @@ function debounce(fn, wait) {
 function setupVibeVideo() {
   const video    = document.getElementById('vibeVideo');
   const fallback = document.getElementById('vibeFallback');
+  const embed    = document.getElementById('vibeEmbed');
   if (!video) return;
 
   const TWEET_ID = '1924399746447269963';
@@ -174,6 +175,12 @@ function setupVibeVideo() {
 
   // Also listen for native video error just in case
   video.addEventListener('error', showFallback);
+
+  video.addEventListener('loadedmetadata', () => {
+    if (video.videoWidth && video.videoHeight && embed) {
+      embed.style.setProperty('--vibe-video-ratio', `${video.videoWidth} / ${video.videoHeight}`);
+    }
+  });
 
   // Give it 5s before showing fallback
   const timer = setTimeout(showFallback, 5000);
