@@ -89,9 +89,11 @@
                   <p class="era-desc">Machine-oriented programming</p>
                   <div class="era-code">
                     <span class="ec-muted">; x86 Assembly</span><br />
-                    <span class="ec-blue">MOV</span> <span class="ec-white">AX, 1</span><br />
-                    <span class="ec-blue">ADD</span> <span class="ec-white">AX, 2</span><br />
-                    <span class="ec-blue">INT</span> <span class="ec-yellow">21h</span>
+                    <span class="ec-blue">MOV</span> <span class="ec-white">CX, 10</span><br />
+                    <span class="ec-white">LOOP_START:</span><br />
+                    <span class="ec-blue">ADD</span> <span class="ec-white">AX, [SI]</span><br />
+                    <span class="ec-blue">INC</span> <span class="ec-white">SI</span><br />
+                    <span class="ec-blue">LOOP</span> <span class="ec-white">LOOP_START</span>
                   </div>
                 </div>
               </div>
@@ -124,9 +126,14 @@
                   <p class="era-desc">Readable programming</p>
                   <div class="era-code">
                     <span class="ec-muted"># Python</span><br />
-                    <span class="ec-red">def</span> <span class="ec-yellow">add</span><span class="ec-white">(a,
-                      b):</span><br />
-                    <span class="ec-white">&nbsp;&nbsp;return</span> <span class="ec-green">a + b</span>
+                    <span class="ec-red">def</span> <span class="ec-yellow">ask_ai</span><span
+                      class="ec-white">(query):</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;res = openai.Chat.create(</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;&nbsp;&nbsp;model=</span><span
+                      class="ec-green">"gpt-4"</span><span class="ec-white">,</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;&nbsp;&nbsp;prompt=query</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;)</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;return res.choices[0]</span>
                   </div>
                 </div>
               </div>
@@ -159,8 +166,11 @@
                   <p class="era-desc">Human-language programming</p>
                   <div class="era-code era-code-nl">
                     <span class="ec-muted">// Prompt</span><br />
-                    <span class="ec-green">"Build me a REST API</span><br />
-                    <span class="ec-green">&nbsp;for user auth with JWT"</span>
+                    <span class="ec-green">"Build a web sentiment analysis app:</span><br />
+                    <span class="ec-green">&nbsp;&nbsp;• <strong>Front-end:</strong> React</span><br />
+                    <span class="ec-green">&nbsp;&nbsp;• <strong>Back-end:</strong> FastAPI</span><br />
+                    <span class="ec-green">&nbsp;&nbsp;• <strong>AI-Integration:</strong> Gemini</span><br />
+                    <span class="ec-green">&nbsp;&nbsp;• <strong>Feature:</strong> CSV reviews dashboard"</span>
                   </div>
                 </div>
               </div>
@@ -177,7 +187,7 @@
                 <path d="M12 8v4M12 16h.01" />
               </svg>
             </div>
-            <p>The most important programming language today is the one you speak every day.</p>
+            <p>The most important programming language today is the one we speak every day.</p>
           </div>
         </div>
       </section>
@@ -266,16 +276,7 @@
               "It enables us to create content, code, and entirely new ideas simply by describing what we want in plain
               natural language."
             </blockquote>
-            <div class="genai-usecases">
-              <div class="genai-uc-label">Use Cases</div>
-              <div class="genai-uc-pills">
-                <span class="uc-pill">💬 AI Chatbot</span>
-                <span class="uc-pill">✏️ AI Editors</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="genai-right">
             <div class="genai-tools-label">Examples</div>
             <div class="genai-tools-grid">
               <div class="tools-category">
@@ -287,13 +288,41 @@
                 </div>
                 <div class="tc-pills">
                   <span class="tc-pill"
-                    style="border-color:rgba(66,133,244,0.3); color:#4285F4; background:rgba(66,133,244,0.06)">Gemini</span>
-                  <span class="tc-pill">GPT</span>
+                    style="border-color:rgba(66,133,244,0.3); color:#4285F4; background:rgba(66,133,244,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#4285F4">
+                        <path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z" />
+                      </svg>
+                    </span>
+                    Gemini
+                  </span>
+                  <span class="tc-pill">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M22.28 12.12c0-1.81-1.47-3.28-3.28-3.28-1.02 0-1.92.47-2.52 1.21-.49-.24-1.04-.38-1.63-.38-.45 0-.87.08-1.25.23-.49-.78-1.36-1.3-2.35-1.3-.99 0-1.86.52-2.35 1.3-.38-.15-.8-.23-1.25-.23-.59 0-1.14.14-1.63.38-.6-.74-1.5-1.21-2.52-1.21-1.81 0-3.28 1.47-3.28 3.28 0 .47.1.91.28 1.31-.78.49-1.3 1.36-1.3 2.35 0 .99.52 1.86 1.3 2.35-.18.4-.28.84-.28 1.31 0 1.81 1.47 3.28 3.28 3.28 1.02 0 1.92-.47 2.52-1.21.49.24 1.04.38 1.63.38.45 0 .87-.08 1.25-.23.49.78 1.36 1.3 2.35 1.3.99 0 1.86-.52 2.35-1.3.38.15.8.23 1.25.23.59 0 1.14-.14 1.63-.38.6.74 1.5 1.21 2.52 1.21 1.81 0 3.28-1.47 3.28-3.28 0-.47-.1-.91-.28-1.31.78-.49 1.3-1.36 1.3-2.35 0-.99-.52-1.86-1.3-2.35.18-.4.28-.84.28-1.31z" />
+                      </svg>
+                    </span>
+                    GPT
+                  </span>
                   <span class="tc-pill"
-                    style="border-color:rgba(66,133,244,0.3); color:#4285F4; background:rgba(66,133,244,0.06)">Claude</span>
-                  <span class="tc-pill">Copilot</span>
-                  <span class="tc-pill">DeepSeek</span>
-                  <span class="tc-pill">Grok</span>
+                    style="border-color:rgba(66,133,244,0.3); color:#4285F4; background:rgba(66,133,244,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#4285F4">
+                        <path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z" />
+                      </svg>
+                    </span>
+                    Claude
+                  </span>
+                  <span class="tc-pill">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.341-3.369-1.341-.454-1.152-1.11-1.459-1.11-1.459-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z" />
+                      </svg>
+                    </span>
+                    Copilot
+                  </span>
                 </div>
               </div>
               <div class="tools-category">
@@ -307,11 +336,33 @@
                 </div>
                 <div class="tc-pills">
                   <span class="tc-pill"
-                    style="border-color:rgba(234,67,53,0.3); color:#EA4335; background:rgba(234,67,53,0.06)">Nano
-                    Banana</span>
-                  <span class="tc-pill">DALL-E</span>
+                    style="border-color:rgba(234,67,53,0.3); color:#EA4335; background:rgba(234,67,53,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#EA4335">
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V7h2v10z" />
+                      </svg>
+                    </span>
+                    Nano Banana
+                  </span>
+                  <span class="tc-pill">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8.5 8.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM7 18l2.5-3.5 2.5 3.01L15.5 13l3.5 5H7z" />
+                      </svg>
+                    </span>
+                    DALL-E
+                  </span>
                   <span class="tc-pill"
-                    style="border-color:rgba(234,67,53,0.3); color:#EA4335; background:rgba(234,67,53,0.06)">Firefly</span>
+                    style="border-color:rgba(234,67,53,0.3); color:#EA4335; background:rgba(234,67,53,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#EA4335">
+                        <path d="M12 2l2.4 7.4h7.6l-6.1 4.5 2.3 7.1-6.2-4.4-6.2 4.4 2.3-7.1-6.1-4.5h7.6z" />
+                      </svg>
+                    </span>
+                    Firefly
+                  </span>
                 </div>
               </div>
               <div class="tools-category">
@@ -326,8 +377,25 @@
                 </div>
                 <div class="tc-pills">
                   <span class="tc-pill"
-                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">ElevenLabs</span>
-                  <span class="tc-pill">Whisper</span>
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#FBBC04">
+                        <path
+                          d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                      </svg>
+                    </span>
+                    ElevenLabs
+                  </span>
+                  <span class="tc-pill">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+                        <path
+                          d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+                      </svg>
+                    </span>
+                    Whisper
+                  </span>
                 </div>
               </div>
               <div class="tools-category">
@@ -340,11 +408,71 @@
                 </div>
                 <div class="tc-pills">
                   <span class="tc-pill"
-                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">Veo</span>
-                  <span class="tc-pill">Sora</span>
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#34A853">
+                        <path
+                          d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+                      </svg>
+                    </span>
+                    Veo
+                  </span>
+                  <span class="tc-pill">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-10 12.5l-3.5-3.5 3.5-3.5 1.41 1.41L10.33 11.5l2.08 2.09L11 15.5z" />
+                      </svg>
+                    </span>
+                    Sora
+                  </span>
                   <span class="tc-pill"
-                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">Runway</span>
-                  <span class="tc-pill">Kling</span>
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#34A853">
+                        <path
+                          d="M13 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9l-7-7zm0 1.5L18.5 9H13V3.5zM6 20V4h6v6h6v10H6z" />
+                      </svg>
+                    </span>
+                    Runway
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="genai-right">
+            <div class="genai-usecases">
+              <div class="genai-uc-label">Use Cases</div>
+              <div class="genai-uc-pills">
+                <span class="uc-pill">💬 AI Chatbot</span>
+                <span class="uc-pill">✏️ AI Editors</span>
+                <span class="uc-pill">💻 Code Generation</span>
+                <span class="uc-pill">🎙️ Voice Synthesis</span>
+              </div>
+            </div>
+
+            <div class="genai-media-showcase">
+              <div class="media-frame frame-main">
+                <iframe src="https://www.youtube-nocookie.com/embed/_fuimO6ErKI" title="Gemini AI Demo" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="frame-label">Gemini AI — Multimodal Demo</div>
+              </div>
+              <div class="media-grid-small">
+                <div class="media-frame frame-small">
+                  <iframe src="https://www.youtube-nocookie.com/embed/trXPfpV5iRQ" title="Runway Gen-2 Demo"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <div class="frame-label">Runway Gen-2 — Video Gen</div>
+                </div>
+                <div class="media-frame frame-small">
+                  <iframe src="https://www.youtube-nocookie.com/embed/v-EYzZCLF48" title="ElevenLabs Demo"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <div class="frame-label">ElevenLabs — Voice Synthesis</div>
                 </div>
               </div>
             </div>
@@ -374,16 +502,54 @@
               "It enables us to automate complex &amp; multi-step processes so that work that used to take hours of
               manual effort can be completed in minutes, consistently and at scale."
             </blockquote>
-            <div class="wf-usecases">
-              <div class="wf-uc-label">Use Cases</div>
-              <div class="wf-uc-pills">
-                <span class="uc-pill uc-pill-yellow">📝 AI Note Takers</span>
-                <span class="uc-pill uc-pill-yellow">🐛 AI Bug Reporting</span>
+            <div class="genai-tools-label">Examples</div>
+            <div class="genai-tools-grid">
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  Frameworks
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">LangChain</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">LangGraph</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">LlamaIndex</span>
+                </div>
+              </div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                  Platforms
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill">N8N</span>
+                  <span class="tc-pill">Zapier</span>
+                  <span class="tc-pill">Flowise</span>
+                  <span class="tc-pill">Dify</span>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="workflows-right">
+            <div class="genai-usecases">
+              <div class="genai-uc-label">Use Cases</div>
+              <div class="genai-uc-pills">
+                <span class="uc-pill uc-pill-yellow">📝 AI Note Takers</span>
+                <span class="uc-pill uc-pill-yellow">🐛 AI Bug Reporting</span>
+                <span class="uc-pill uc-pill-yellow">✉️ Email Triage</span>
+                <span class="uc-pill uc-pill-yellow">📊 Data Processing</span>
+              </div>
+            </div>
+
             <div class="wf-diagram">
               <div class="wfd-label">System Design</div>
               <div class="wfd-flow">
@@ -427,30 +593,18 @@
                 </div>
               </div>
 
-              <div class="wf-tools-section">
-                <div class="wf-tools-col">
-                  <div class="wf-tools-col-label">Frameworks</div>
-                  <div class="tc-pills">
-                    <span class="tc-pill"
-                      style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">LangChain</span>
-                    <span class="tc-pill"
-                      style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">LangGraph</span>
-                    <span class="tc-pill"
-                      style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">LlamaIndex</span>
-                  </div>
-                </div>
-                <div class="wf-tools-divider"></div>
-                <div class="wf-tools-col">
-                  <div class="wf-tools-col-label">Platforms</div>
-                  <div class="tc-pills">
-                    <span class="tc-pill">N8N</span>
-                    <span class="tc-pill">Zapier</span>
-                    <span class="tc-pill">Flowise</span>
-                    <span class="tc-pill">Dify</span>
-                  </div>
-                </div>
+            </div>
+
+            <div class="genai-media-showcase">
+              <div class="media-frame frame-main">
+                <iframe src="https://www.youtube-nocookie.com/embed/CWxoDT05ED0" title="n8n AI Workflow Demo"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="frame-label">n8n — AI Workflow Demo</div>
               </div>
             </div>
+
           </div>
 
         </div>
@@ -477,69 +631,15 @@
               "It enables us to delegate complex, open-ended tasks to an AI that can think, decide, and execute
               independently."
             </blockquote>
-            <div class="ag-usecases">
-              <div class="ag-uc-label">Use Cases</div>
-              <div class="ag-uc-pills">
-                <span class="uc-pill uc-pill-green">💻 Coding Agents</span>
-                <span class="uc-pill uc-pill-green">🔍 Deep Research Agents</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="agents-right">
-            <div class="ag-cycle-label">System Design</div>
-            <div class="ag-cycle">
-              <div class="ag-cycle-center">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M20 21a8 8 0 1 0-16 0" />
-                </svg>
-                <span>AI Agent</span>
-              </div>
-              <div class="ag-cycle-steps">
-                <div class="ag-step ag-step-top">
-                  <div class="ag-step-icon"
-                    style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.07);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M12 8v4l3 3" />
-                    </svg>
-                  </div>
-                  <span>Plan</span>
+            <div class="genai-tools-label">Examples</div>
+            <div class="genai-tools-grid">
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  Frameworks
                 </div>
-                <div class="ag-step ag-step-right">
-                  <div class="ag-step-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="2">
-                      <path d="M9 12l2 2 4-4" />
-                      <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-                    </svg>
-                  </div>
-                  <span>Decide</span>
-                </div>
-                <div class="ag-step ag-step-bottom">
-                  <div class="ag-step-icon" style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.07);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2">
-                      <polyline points="13 17 18 12 13 7" />
-                      <polyline points="6 17 11 12 6 7" />
-                    </svg>
-                  </div>
-                  <span>Execute</span>
-                </div>
-                <div class="ag-step ag-step-left">
-                  <div class="ag-step-icon" style="border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.07);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                      <circle cx="12" cy="12" r="3" />
-                    </svg>
-                  </div>
-                  <span>Observe</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="ag-tools-section">
-              <div class="ag-tools-col">
-                <div class="ag-tools-col-label">Frameworks</div>
                 <div class="tc-pills">
                   <span class="tc-pill"
                     style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">CrewAI</span>
@@ -547,15 +647,28 @@
                     style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">AutoGen</span>
                 </div>
               </div>
-              <div class="ag-tools-col">
-                <div class="ag-tools-col-label">Platforms</div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                  Platforms
+                </div>
                 <div class="tc-pills">
                   <span class="tc-pill">VertexAI</span>
                   <span class="tc-pill">Bedrock</span>
                 </div>
               </div>
-              <div class="ag-tools-col">
-                <div class="ag-tools-col-label">Products</div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                    <polygon points="23 7 16 12 23 17 23 7" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" />
+                  </svg>
+                  Products
+                </div>
                 <div class="tc-pills">
                   <span class="tc-pill"
                     style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">Cursor</span>
@@ -565,6 +678,94 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="agents-right">
+            <div class="genai-usecases">
+              <div class="genai-uc-label">Use Cases</div>
+              <div class="genai-uc-pills">
+                <span class="uc-pill uc-pill-green">💻 Coding Agents</span>
+                <span class="uc-pill uc-pill-green">🔍 Deep Research Agents</span>
+                <span class="uc-pill uc-pill-green">🌐 Browser Automation Agents</span>
+              </div>
+            </div>
+
+            <div class="ag-cycle-label">System Design</div>
+            <div class="ag-h-system">
+              <div class="ag-h-agent">
+                <div class="ag-h-step-icon agent-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M20 21a8 8 0 1 0-16 0" />
+                  </svg>
+                </div>
+                <span class="ag-h-step-title agent-title">AI Agent</span>
+              </div>
+
+              <div class="ag-h-flow">
+                <div class="ag-h-step">
+                  <div class="ag-h-step-icon"
+                    style="border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <span class="ag-h-step-title">Observe</span>
+                </div>
+
+                <div class="ag-h-arrow">→</div>
+
+                <div class="ag-h-step">
+                  <div class="ag-h-step-icon"
+                    style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4l3 3" />
+                    </svg>
+                  </div>
+                  <span class="ag-h-step-title">Plan</span>
+                </div>
+
+                <div class="ag-h-arrow">→</div>
+
+                <div class="ag-h-step">
+                  <div class="ag-h-step-icon"
+                    style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="2">
+                      <path d="M9 12l2 2 4-4" />
+                      <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+                    </svg>
+                  </div>
+                  <span class="ag-h-step-title">Decide</span>
+                </div>
+
+                <div class="ag-h-arrow">→</div>
+
+                <div class="ag-h-step">
+                  <div class="ag-h-step-icon"
+                    style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2">
+                      <polyline points="13 17 18 12 13 7" />
+                      <polyline points="6 17 11 12 6 7" />
+                    </svg>
+                  </div>
+                  <span class="ag-h-step-title">Execute</span>
+                </div>
+
+                <div class="ag-h-arrow" style="font-size:24px;">↺</div>
+              </div>
+            </div>
+
+            <div class="genai-media-showcase">
+              <div class="media-frame frame-main">
+                <iframe src="https://www.youtube.com/embed/fjzaB9eOKns" title="Devin AI Agent Demo" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="frame-label">Devin — AI Agent Demo</div>
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -810,12 +1011,15 @@
           <div class="karp-inner">
             <!-- <div class="karp-quote-mark">"</div> -->
             <blockquote class="karp-quote">
-              "Everyone is now a programmer<br />because<br />everyone can speak
-              <span class="karp-highlight">natural language</span>"
+              "Everyone is now a programmer<br />
+              because<br />
+              everyone can speak <span class="karp-highlight">natural language</span>"
             </blockquote>
             <div class="karp-attribution">
               <div class="karp-avatar">
-                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nDvyq2NoPL626bk1IbxQ94SfQsD-B0qgZchghtQNkLWoEz=s900-c-k-c0x00ffffff-no-rj" alt="Andrej Karpathy">
+                <img
+                  src="https://yt3.googleusercontent.com/ytc/AIdro_nDvyq2NoPL626bk1IbxQ94SfQsD-B0qgZchghtQNkLWoEz=s900-c-k-c0x00ffffff-no-rj"
+                  alt="Andrej Karpathy">
               </div>
               <div class="karp-attr-text">
                 <strong>Andrej Karpathy</strong>
@@ -827,33 +1031,35 @@
       </section>
 
       <!-- ============================
+         SLIDE C1-9 — THE PREMISE
+         ============================ -->
+      <section class="slide slide-skill-premise" id="slide-skill-premise">
+        <div class="slide-label">The New Reality</div>
+        <div class="skill-bg">
+          <div class="skill-dots"></div>
+        </div>
+        <div class="slide-content skill-hero-layout">
+          <h2 class="skill-hero-title">
+            Since everyone could be a<br />
+            <span class="skill-highlight">programmer with AI...</span>
+          </h2>
+        </div>
+      </section>
+
+      <!-- ============================
          SLIDE C1-10 — MOST VALUABLE SKILL
          ============================ -->
       <section class="slide slide-skill-pivot" id="slide-skill">
         <div class="slide-label">The Most Valuable Skill in the AI Era</div>
         <div class="skill-bg">
           <div class="skill-dots"></div>
-          <div class="skill-gradient"></div>
         </div>
-        <div class="slide-content skill-layout">
-          <div class="skill-top">
-            <p class="skill-eyebrow">The Question Everyone Should Ask</p>
-            <div class="skill-premise-list">
-              <div class="skill-premise">
-                <div class="skill-premise-num">01</div>
-                <p>Since everyone could be a programmer with AI…</p>
-              </div>
-              <div class="skill-premise-connector">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </div>
-              <div class="skill-premise">
-                <div class="skill-premise-num">02</div>
-                <p>What is the most <strong>valuable skill</strong> to have?</p>
-              </div>
-            </div>
-          </div>
+        <div class="slide-content skill-hero-layout">
+          <h2 class="skill-hero-title">
+            What is the<br />
+            <span class="skill-highlight">Most Valuable Skill</span><br />
+            to Have Now?
+          </h2>
         </div>
       </section>
 
