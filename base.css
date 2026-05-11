@@ -769,12 +769,17 @@ html, body {
 .chapter-item:first-child { border-top: 1px solid var(--border); }
 
 .chap-label {
-  font-size: 16px;
+  font-size: 30px;
   font-weight: 600;
   color: var(--text-muted);
   letter-spacing: 0.04em;
   font-family: var(--font-body);
 }
+
+.chapter-item:nth-child(1) .chap-label { color: var(--blue); }
+.chapter-item:nth-child(2) .chap-label { color: var(--red); }
+.chapter-item:nth-child(3) .chap-label { color: var(--yellow); }
+.chapter-item:nth-child(4) .chap-label { color: var(--green); }
 
 .chapter-title {
   font-family: var(--font-display);
@@ -798,8 +803,8 @@ html, body {
 }
 .hands-on-icon { flex-shrink: 0; }
 .hands-on-content { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.hands-on-label { font-size: 20px; font-weight: 700; color: var(--text-primary); }
-.hands-on-desc  { font-size: 18px; color: var(--text-secondary); }
+.hands-on-label { font-size: 30px; font-weight: 700; color: var(--text-primary); }
+.hands-on-desc  { font-size: 30px; color: var(--text-secondary); }
 
 /* =============================================
    CHAPTER TITLE SLIDES
@@ -990,8 +995,9 @@ html, body {
 .closing-gdg-dots { display: flex; gap: 12px; margin-bottom: 8px; }
 .closing-title {
   font-family: var(--font-display);
-  font-size: 84px; font-weight: 700; color: var(--text-primary);
+  font-size: 67.2px; font-weight: 700; color: var(--text-primary);
   line-height: 1.08; letter-spacing: -0.035em;
+  text-align: center;
 }
 .closing-title em { font-style: normal; color: var(--blue); }
 .closing-body { font-size: 20px; color: var(--text-secondary); line-height: 1.7; max-width: 640px; }
@@ -999,8 +1005,8 @@ html, body {
 .closing-meta { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 .closing-speaker { display: flex; align-items: center; gap: 16px; }
 .closing-speaker div { display: flex; flex-direction: column; gap: 3px; }
-.closing-speaker strong { font-size: 18px; font-weight: 600; color: var(--text-primary); }
-.closing-speaker span  { font-size: 15px; color: var(--text-muted); }
+.closing-speaker strong { font-size: 22.5px; font-weight: 600; color: var(--text-primary); }
+.closing-speaker span  { font-size: 18.75px; color: var(--text-muted); }
 .closing-event { font-size: 15px; color: var(--text-muted); font-weight: 500; }
 
 /* Speaker avatar small (closing) */
@@ -1010,8 +1016,10 @@ html, body {
   font-family: var(--font-display); font-size: 18px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
   border: 2px solid rgba(66,133,244,0.2); flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
 }
-.speaker-avatar.sm { width: 48px; height: 48px; font-size: 14px; }
+.speaker-avatar.sm { width: 60px; height: 60px; font-size: 14px; }
 
 /* =============================================
    SLIDE MAP
@@ -1075,4 +1083,289 @@ html, body {
 @media print {
   .slide { position: relative; opacity: 1 !important; transform: none !important; page-break-after: always; }
   .progress-bar, .slide-counter, .nav-controls, .fullscreen-btn, .slide-map { display: none; }
+}
+/* =============================================
+   COVER TAGS FOOTER
+   ============================================= */
+.cover-tags-footer {
+  position: absolute;
+  bottom: 56px;
+  left: var(--slide-pad-x);
+  right: var(--slide-pad-x);
+  z-index: 20;
+}
+.cover-tags-footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.cover-tags-footer .tag {
+  font-size: 15px;
+  padding: 6px 16px;
+}
+.slide.active .cover-tags-footer { animation: fadeUp 0.6s 0.32s var(--ease-out) both; }
+
+/* =============================================
+   SPEAKER SLIDE — UPDATES
+   ============================================= */
+.spk-details-scrollable {
+  overflow: visible;
+  gap: 24px;
+}
+
+/* Bottom two-column row for awards + speakership */
+.spk-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.spk-section-half { flex: none; }
+
+.spk-awards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.spk-awards-col .spk-award {
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+.spk-awards-col .spk-award-medal { font-size: 20px; }
+.spk-awards-col .spk-award-title { font-size: 13px; }
+.spk-awards-col .spk-award-year  { font-size: 12px; }
+
+/* Speakership list */
+.spk-speak-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.spk-speak-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.spk-speak-item:last-child { border-bottom: none; }
+.spk-speak-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.spk-speak-text { display: flex; flex-direction: column; gap: 2px; }
+.spk-speak-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+.spk-speak-org {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Reduce timeline padding for tighter fit */
+.spk-details-scrollable .spk-tl-item {
+  padding: 10px 0;
+}
+.spk-details-scrollable .spk-tl-role { font-size: 17px; }
+.spk-details-scrollable .spk-tl-org  { font-size: 15px; }
+
+/* =============================================
+   REVEAL STEP 2 — POP ANIMATION (answer only)
+   ============================================= */
+.reveal-answer-pop {
+  animation: revealPop 0.55s var(--ease-out) both;
+}
+@keyframes revealPop {
+  0%   { opacity: 0; transform: scale(0.82) translateY(20px); }
+  60%  { transform: scale(1.04) translateY(-4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Step 3 langs stagger (override existing nth-child delays) */
+.reveal-step.step-3 .rl-pill:nth-child(1) { animation-delay: 0.05s; }
+.reveal-step.step-3 .rl-pill:nth-child(2) { animation-delay: 0.12s; }
+.reveal-step.step-3 .rl-pill:nth-child(3) { animation-delay: 0.19s; }
+.reveal-step.step-3 .rl-pill:nth-child(4) { animation-delay: 0.26s; }
+.reveal-step.step-3 .rl-pill:nth-child(5) { animation-delay: 0.33s; }
+.reveal-step.step-3 .rl-pill:nth-child(6) { animation-delay: 0.40s; }
+
+/* Re-trigger pill animation when step becomes active */
+.reveal-step.active-step .rl-pill {
+  animation: fadeUp 0.4s var(--ease-out) both;
+}
+
+/* =============================================
+   UPDATE PATCH — cover tags justify, speaker card,
+   chapter 2-line, why-slide animation
+   ============================================= */
+
+/* 1. Cover tags — justify (space-between) */
+.cover-tags-footer-row {
+  justify-content: space-between !important;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+/* Grow individual tags equally to fill the row */
+.cover-tags-footer-row .tag {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 7px 10px;
+}
+/* Hidden spacer no longer needed */
+.cover-tags-spacer { display: none; }
+
+/* 2a. Speaker card — center avatar, wider card */
+.spk-identity {
+  width: 480px !important; /* 400 * 1.2 */
+}
+.spk-card {
+  align-items: center !important; /* center everything */
+  padding: 48px 44px 44px !important;
+}
+.spk-avatar-wrap {
+  width: 144px !important;  /* 120 * 1.2 */
+  height: 144px !important;
+}
+.spk-avatar {
+  width: 144px !important;
+  height: 144px !important;
+  font-size: 38px !important;
+}
+.spk-name-block {
+  align-items: center;
+  text-align: center;
+}
+.spk-name {
+  font-size: 28px !important;
+  text-align: center;
+}
+.spk-title-role {
+  font-size: 15px !important;
+  text-align: center;
+}
+.spk-edu-badge {
+  font-size: 14px !important;
+  padding: 11px 16px !important;
+}
+.spk-social-pill {
+  font-size: 13px !important;
+  padding: 10px 16px !important;
+  justify-content: flex-start;
+}
+
+/* 2b. Right-side text 20% larger */
+.spk-details-scrollable .spk-section-label {
+  font-size: 15px !important;
+}
+.spk-details-scrollable .spk-tl-role {
+  font-size: 20px !important;
+}
+.spk-details-scrollable .spk-tl-org {
+  font-size: 18px !important;
+}
+.spk-details-scrollable .spk-tl-year {
+  font-size: 17px !important;
+}
+.spk-awards-col .spk-award-title {
+  font-size: 15px !important;
+}
+.spk-awards-col .spk-award-year {
+  font-size: 14px !important;
+}
+.spk-speak-title {
+  font-size: 17px !important;
+}
+.spk-speak-org {
+  font-size: 14px !important;
+}
+
+/* 3. Chapter heading — force 2 lines, no 3-line wraps */
+.chapter-heading {
+  font-size: 76px !important;
+  white-space: normal;
+  max-width: 1100px !important;
+}
+
+/* 4. Why slide — smooth cross-fade transition */
+/* Base: step-2 starts invisible and slightly shifted down */
+.reveal-step-crossfade {
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out) !important;
+}
+
+/* "Why?" text in step-2 slides up from where it was (no jump) */
+.why-question-persist {
+  animation: whyPersist 0.5s 0s var(--ease-out) both;
+}
+@keyframes whyPersist {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Answer block pops in with slight delay */
+.reveal-answer-why-pop {
+  animation: whyAnswerIn 0.65s 0.18s var(--ease-out) both;
+}
+@keyframes whyAnswerIn {
+  0%   { opacity: 0; transform: translateY(32px) scale(0.94); }
+  65%  { transform: translateY(-4px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Override default reveal-step transition for step-2 on the why slide */
+#slide-5 .reveal-step.step-2 {
+  transition: opacity 0.55s var(--ease-out) !important;
+}
+/* Step 1 fades out smoothly when step-2 becomes active */
+#slide-5 .reveal-step.step-1 {
+  transition: opacity 0.45s var(--ease-out) !important;
+}
+
+/* =============================================
+   SPEAKER CARD PATCH — full height, larger avatar,
+   bold section labels
+   ============================================= */
+
+/* Make identity column stretch to full slide height */
+.spk-layout {
+  align-items: stretch !important;
+}
+.spk-identity {
+  align-items: stretch !important;
+  display: flex;
+  flex-direction: column;
+}
+.spk-card {
+  flex: 1 !important;
+  justify-content: center !important;
+  gap: 20px !important;
+}
+
+/* Avatar — double the size (~120 base * 2 = 240, override patch 144) */
+.spk-avatar-wrap {
+  width: 240px !important;
+  height: 240px !important;
+}
+.spk-avatar {
+  width: 240px !important;
+  height: 240px !important;
+  font-size: 56px !important;
+}
+.spk-avatar-ring {
+  inset: -6px !important;
+}
+
+/* Bold all section label headings */
+.spk-section-label {
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  color: var(--text-secondary) !important;
 }
