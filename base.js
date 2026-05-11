@@ -1,14 +1,9 @@
-/* =============================================
-   PRESENTATION ENGINE
-   ============================================= */
-
 'use strict';
 
 // ── State ────────────────────────────────────
 let currentIndex = 0;
 let isAnimating  = false;
 
-// Storage key for persisting slide position across refreshes
 const STORAGE_KEY = 'slide-pos-index';
 
 // ── DOM refs ─────────────────────────────────
@@ -20,7 +15,6 @@ const prevBtn     = document.getElementById('prevBtn');
 const nextBtn     = document.getElementById('nextBtn');
 
 // ── Step state per slide ──────────────────────
-// stepState[slideIndex] = current step index (0-based)
 const stepState = slides.map(() => 0);
 
 function getStepCount(slideEl) {
@@ -49,7 +43,6 @@ function resetSteps(slideEl) {
 function init() {
   totalEl.textContent = slides.length;
 
-  // Restore saved position on refresh
   const saved = parseInt(sessionStorage.getItem(STORAGE_KEY), 10);
   const startIndex = (!isNaN(saved) && saved >= 0 && saved < slides.length) ? saved : 0;
 
@@ -68,8 +61,6 @@ function goTo(index, direction = 'next') {
   const prev = slides[currentIndex];
   const next = slides[index];
 
-  // Reset steps on the slide we're leaving (going forward)
-  // Reset the target slide's steps to 0 always
   resetSteps(next);
 
   slides.forEach(s => s.classList.remove('active', 'prev'));
@@ -87,14 +78,12 @@ function goTo(index, direction = 'next') {
   }, 550);
 }
 
-// Advance a step within the current slide, or move to next slide
 function nextSlide() {
   const slide = slides[currentIndex];
   const totalSteps = getStepCount(slide);
   const cur = stepState[currentIndex];
 
   if (cur < totalSteps - 1) {
-    // Advance within the slide
     stepState[currentIndex]++;
     showStep(slide, stepState[currentIndex]);
     updateControls();
@@ -103,7 +92,6 @@ function nextSlide() {
   }
 }
 
-// Go back a step within the current slide, or move to previous slide
 function prevSlide() {
   const slide = slides[currentIndex];
   const cur = stepState[currentIndex];
@@ -117,7 +105,7 @@ function prevSlide() {
   }
 }
 
-// ── HUD Update ───────────────────────────────
+// ── HUD ──────────────────────────────────────
 function updateHUD() {
   currentEl.textContent = currentIndex + 1;
   const progress = ((currentIndex + 1) / slides.length) * 100;
@@ -177,8 +165,6 @@ function onWheel(e) {
   else prevSlide();
 }
 
-
-
 // ── Fullscreen ───────────────────────────────
 function toggleFullscreen() {
   if (!document.fullscreenElement) {
@@ -188,7 +174,7 @@ function toggleFullscreen() {
   }
 }
 
-// ── Slide Map Toggle ─────────────────────────
+// ── Slide Map ─────────────────────────────────
 function toggleSlideMap() {
   const num = parseInt(prompt(`Go to slide (1–${slides.length}):`));
   if (!isNaN(num) && num >= 1 && num <= slides.length) {
