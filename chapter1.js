@@ -142,61 +142,77 @@ function debounce(fn, wait) {
   };
 }
 
-// ── Vibe Video — Autoplay + Loop ─────────────
-// Twitter/X embeds can't autoplay. We use the fxtwitter API
-// to resolve the real .mp4 URL, then drive a native <video>.
-function setupVibeVideo() {
-  const video    = document.getElementById('vibeVideo');
-  const fallback = document.getElementById('vibeFallback');
-  const embed    = document.getElementById('vibeEmbed');
-  if (!video) return;
+// ── Twitter Video Sync — Autoplay + Loop ───────────
+// We use multiple proxies to resolve real .mp4 URLs for better reliability.
+function setupTwitterVideos() {
+  const containers = document.querySelectorAll('.twitter-video-sync, .vibe-video-embed');
+  const proxies = ['api.fxtwitter.com', 'api.vxtwitter.com', 'api.fixupx.com'];
+  
+  containers.forEach(container => {
+    const video = container.querySelector('video');
+    const fallback = container.querySelector('.video-fallback, .vibe-video-fallback');
+    const tweetId = container.getAttribute('data-tweet-id') || '1924399746447269963';
 
-  const TWEET_ID = '1924399746447269963';
+    if (!video) return;
 
-  // Candidates: fxtwitter JSON API → actual mp4 URL
-  const apiUrl = `https://api.fxtwitter.com/status/${TWEET_ID}`;
+    let proxyIndex = 0;
 
-  fetch(apiUrl)
-    .then(r => r.json())
-    .then(data => {
-      // fxtwitter returns tweet.media.videos[0].url for video tweets
-      const mp4 = data?.tweet?.media?.videos?.[0]?.url
-                || data?.tweet?.media?.all?.[0]?.url;
-      if (mp4) {
-        video.src = mp4;
-        video.load();
-        video.play().catch(() => {});
-        fallback.style.display = 'none';
-      } else {
+    function tryFetch() {
+      if (proxyIndex >= proxies.length) {
         showFallback();
+        return;
       }
-    })
-    .catch(() => showFallback());
 
-  // Also listen for native video error just in case
-  video.addEventListener('error', showFallback);
+      const apiUrl = `https://${proxies[proxyIndex]}/status/${tweetId}`;
+      fetch(apiUrl)
+        .then(r => r.json())
+        .then(data => {
+          const mp4 = data?.tweet?.media?.videos?.[0]?.url
+                    || data?.tweet?.media?.all?.[0]?.url;
+          if (mp4) {
+            video.src = mp4;
+            video.load();
+            video.play().catch(() => {});
+            if (fallback) fallback.style.display = 'none';
+          } else {
+            nextProxy();
+          }
+        })
+        .catch(() => nextProxy());
+    }
 
-  video.addEventListener('loadedmetadata', () => {
-    if (video.videoWidth && video.videoHeight && embed) {
-      embed.style.setProperty('--vibe-video-ratio', `${video.videoWidth} / ${video.videoHeight}`);
+    function nextProxy() {
+      proxyIndex++;
+      tryFetch();
+    }
+
+    tryFetch();
+
+    video.addEventListener('error', showFallback);
+    video.addEventListener('loadedmetadata', () => {
+      if (video.videoWidth && video.videoHeight) {
+        container.style.setProperty('--vibe-video-ratio', `${video.videoWidth} / ${video.videoHeight}`);
+      }
+    });
+
+    const timer = setTimeout(() => {
+      if (!video.src) showFallback();
+    }, 8000);
+
+    video.addEventListener('canplay', () => {
+      clearTimeout(timer);
+      if (fallback) fallback.style.display = 'none';
+      video.play().catch(() => {});
+    });
+
+    function showFallback() {
+      clearTimeout(timer);
+      video.style.display = 'none';
+      if (fallback) fallback.style.display = 'flex';
     }
   });
-
-  // Give it 5s before showing fallback
-  const timer = setTimeout(showFallback, 5000);
-  video.addEventListener('canplay', () => {
-    clearTimeout(timer);
-    fallback.style.display = 'none';
-    video.play().catch(() => {});
-  });
-
-  function showFallback() {
-    clearTimeout(timer);
-    video.style.display = 'none';
-    fallback.style.display = 'flex';
-  }
 }
 
 // ── Start ─────────────────────────────────────
 init();
-setupVibeVideo();
+setupTwitterVideos();
