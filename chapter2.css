@@ -465,19 +465,19 @@ html, body {
 .slide-technique-detail { background: var(--surface); }
 
 .technique-layout {
-  flex-direction: row; gap: 80px; align-items: flex-start;
+  flex-direction: row; gap: 60px; align-items: flex-start;
 }
 
 .technique-left {
-  flex: 1; display: flex; flex-direction: column; gap: 16px;
+  flex: 1; display: flex; flex-direction: column; gap: 12px;
   max-width: 500px;
 }
 
 .technique-badge {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-size: 20px; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; padding: 10px 24px; border-radius: 100px;
-  border: 2px solid; align-self: flex-start; font-family: var(--font-body);
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 16px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 8px 20px; border-radius: 100px;
+  border: 1.5px solid; align-self: flex-start; font-family: var(--font-body);
 }
 .tnum {
   font-family: var(--font-mono); font-size: 18px; font-weight: 700;
@@ -485,13 +485,13 @@ html, body {
 }
 
 .technique-title {
-  font-family: var(--font-display); font-size: 68px;
+  font-family: var(--font-display); font-size: 56px;
   font-weight: 700; color: var(--text-primary); letter-spacing: -0.025em;
   line-height: 1.1;
 }
 
 .technique-def {
-  font-size: 26px; color: var(--text-secondary); line-height: 1.55;
+  font-size: 22px; color: var(--text-secondary); line-height: 1.55;
 }
 
 /* Structure panel */
@@ -511,21 +511,21 @@ html, body {
 }
 
 .ts-key {
-  font-family: var(--font-mono); font-size: 18px; font-weight: 500;
+  font-family: var(--font-mono); font-size: 16px; font-weight: 500;
   flex-shrink: 0; min-width: 140px; padding-top: 1px;
 }
 .ts-val {
-  font-size: 22px; color: var(--text-secondary);
+  font-size: 18px; color: var(--text-secondary);
 }
 .ts-val em { font-style: normal; color: var(--text-primary); font-weight: 500; }
 
 /* Reference */
 .technique-reference { display: flex; flex-direction: column; gap: 10px; margin-top: auto; flex-shrink: 0; }
 .technique-ref {
-  display: flex; align-items: flex-start; gap: 18px;
-  padding: 24px 28px; border-radius: 16px;
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px 24px; border-radius: 16px;
   background: var(--bg); border: 1px solid var(--border);
-  font-size: 20px; color: var(--text-muted); line-height: 1.5;
+  font-size: 17px; color: var(--text-muted); line-height: 1.5;
 }
 .technique-ref svg { flex-shrink: 0; margin-top: 2px; }
 
@@ -533,18 +533,18 @@ html, body {
 .ref-meaning { color: var(--text-secondary); }
 .ref-highlight { color: var(--text-primary); font-weight: 500; }
 .ref-highlight strong { color: var(--blue); }
-.ref-citation { font-family: var(--font-mono); font-size: 16px; color: var(--text-muted); margin-top: 4px; }
+.ref-citation { font-family: var(--font-mono); font-size: 14px; color: var(--text-muted); margin-top: 4px; }
 .technique-ref strong { color: var(--text-primary); }
 
 /* Right panel */
-.technique-right { flex: 1.2; display: flex; flex-direction: column; gap: 24px; }
+.technique-right { flex: 1.2; display: flex; flex-direction: column; gap: 16px; }
 
 /* Compare badges */
 .compare-label-row { display: flex; align-items: center; gap: 16px; }
 
 .compare-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 10px 22px; border-radius: 100px; font-size: 16px; font-weight: 700;
+  padding: 8px 18px; border-radius: 100px; font-size: 14px; font-weight: 700;
   letter-spacing: 0.06em; text-transform: uppercase; border: 1.5px solid;
   font-family: var(--font-body);
 }
@@ -573,13 +573,13 @@ html, body {
 .cb-label-user   { color: var(--green); margin-top: 12px; }
 
 .cb-text {
-  font-size: 24px; color: var(--text-primary); line-height: 1.5;
-  font-family: var(--font-display); font-weight: 600;
+  font-size: 20px; color: var(--text-primary); line-height: 1.5;
+  font-family: var(--font-display); font-weight: 400;
 }
 
 .cb-code {
-  font-family: var(--font-mono); font-size: 18px; line-height: 1.6;
-  background: #1A1D21; border-radius: 14px; padding: 24px 28px;
+  font-family: var(--font-mono); font-size: 16px; line-height: 1.6;
+  background: #1A1D21; border-radius: 14px; padding: 20px 24px;
   border: 1px solid rgba(255,255,255,0.05); flex: 1;
 }
 .cc-blue   { color: #82B8FF; }
