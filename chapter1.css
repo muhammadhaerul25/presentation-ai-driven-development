@@ -1232,7 +1232,7 @@ html, body {
 }
 
 .vibe-left {
-  flex: 1.15;
+  flex: 0.68;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -1323,7 +1323,7 @@ html, body {
 
 /* Video card */
 .vibe-right {
-  flex: 0.95;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
