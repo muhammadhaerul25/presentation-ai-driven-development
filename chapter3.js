@@ -6,17 +6,17 @@
 'use strict';
 
 let currentIndex = 0;
-let isAnimating  = false;
+let isAnimating = false;
 
 // Storage key for persisting slide position across refreshes
 const STORAGE_KEY = 'slide-pos-ch3';
 
-const slides      = Array.from(document.querySelectorAll('.slide'));
-const totalEl     = document.getElementById('totalSlides');
-const currentEl   = document.getElementById('currentSlide');
+const slides = Array.from(document.querySelectorAll('.slide'));
+const totalEl = document.getElementById('totalSlides');
+const currentEl = document.getElementById('currentSlide');
 const progressBar = document.getElementById('progressBar');
-const prevBtn     = document.getElementById('prevBtn');
-const nextBtn     = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
 // Step state per slide
 const stepState = slides.map(() => 0);
@@ -117,8 +117,8 @@ function updateHUD() {
 
 function updateControls() {
   const atStart = currentIndex === 0 && stepState[currentIndex] === 0;
-  const atEnd   = currentIndex === slides.length - 1 &&
-                  stepState[currentIndex] === getStepCount(slides[currentIndex]) - 1;
+  const atEnd = currentIndex === slides.length - 1 &&
+    stepState[currentIndex] === getStepCount(slides[currentIndex]) - 1;
   prevBtn.disabled = atStart;
   nextBtn.disabled = atEnd;
 }
@@ -170,7 +170,7 @@ function onWheel(e) {
 
 function toggleFullscreen() {
   if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen().catch(() => {});
+    document.documentElement.requestFullscreen().catch(() => { });
   } else {
     document.exitFullscreen();
   }
@@ -184,4 +184,70 @@ function debounce(fn, wait) {
   };
 }
 
+// ── Twitter Video Sync — Autoplay + Loop ───────────
+function setupTwitterVideos() {
+  const containers = document.querySelectorAll('.twitter-video-sync, .gem-video-frame, .rag-video-frame');
+  const proxies = ['api.fxtwitter.com', 'api.vxtwitter.com', 'api.fixupx.com'];
+  
+  containers.forEach(container => {
+    const video = container.querySelector('video');
+    const fallback = container.querySelector('.video-fallback');
+    const tweetId = container.getAttribute('data-tweet-id');
+
+    if (!video || !tweetId) return;
+
+    let proxyIndex = 0;
+
+    function tryFetch() {
+      if (proxyIndex >= proxies.length) {
+        showFallback();
+        return;
+      }
+
+      const apiUrl = `https://${proxies[proxyIndex]}/status/${tweetId}`;
+      fetch(apiUrl)
+        .then(r => r.json())
+        .then(data => {
+          const mp4 = data?.tweet?.media?.videos?.[0]?.url
+                    || data?.tweet?.media?.all?.[0]?.url;
+          if (mp4) {
+            video.src = mp4;
+            video.load();
+            video.play().catch(() => {});
+            if (fallback) fallback.style.display = 'none';
+          } else {
+            nextProxy();
+          }
+        })
+        .catch(() => nextProxy());
+    }
+
+    function nextProxy() {
+      proxyIndex++;
+      tryFetch();
+    }
+
+    tryFetch();
+
+    video.addEventListener('error', showFallback);
+    
+    const timer = setTimeout(() => {
+      if (!video.src) showFallback();
+    }, 8000);
+
+    video.addEventListener('canplay', () => {
+      clearTimeout(timer);
+      if (fallback) fallback.style.display = 'none';
+      video.play().catch(() => {});
+    });
+
+    function showFallback() {
+      clearTimeout(timer);
+      video.style.display = 'none';
+      if (fallback) fallback.style.display = 'flex';
+    }
+  });
+}
+
 init();
+setupTwitterVideos();
