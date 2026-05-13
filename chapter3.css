@@ -233,7 +233,7 @@ body {
   position: absolute;
   top: 24px;
   left: var(--slide-pad-x);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -934,7 +934,7 @@ body {
 }
 
 .uc-card-desc {
-  font-size: 17px;
+  font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.55;
   flex: 1;
@@ -1034,12 +1034,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
 .rag-step-title {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
@@ -1053,9 +1053,11 @@ body {
 
 .rag-step-connector {
   width: 1.5px;
-  height: 10px;
-  background: var(--border);
+  height: 12px;
+  border-left: 1.5px solid var(--border);
+  background: transparent;
   margin-left: 17px;
+  opacity: 0.3;
 }
 
 /* Right column */
@@ -1086,16 +1088,25 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 16px 20px;
+  border-radius: 16px;
   border: 1px solid var(--border);
-  background: var(--bg);
+  background: var(--surface);
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.rag-arch-node:hover {
+  transform: translateX(6px);
+  border-color: var(--blue);
+  box-shadow: 0 12px 32px rgba(66, 133, 244, 0.08);
 }
 
 .rag-arch-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 9px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   border: 1.5px solid;
   display: flex;
   align-items: center;
@@ -1112,14 +1123,14 @@ body {
 
 .rag-arch-name {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .rag-arch-sub {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-muted);
 }
 
@@ -1135,9 +1146,10 @@ body {
 }
 
 .rag-arch-arrow {
-  font-size: 14px;
+  font-size: 18px;
   color: var(--border);
-  padding: 3px 0 3px 16px;
+  padding: 2px 0 2px 24px;
+  opacity: 0.6;
 }
 
 .rag-arch-split {
@@ -1180,6 +1192,7 @@ body {
 .rag-video-frame {
   width: 100%;
   aspect-ratio: 16 / 9;
+  max-height: 380px;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -1249,7 +1262,7 @@ body {
 }
 
 .app-pipeline-label {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1270,7 +1283,7 @@ body {
   border-radius: 12px;
   background: var(--bg);
   border: 1px solid var(--border);
-  font-size: 17px;
+  font-size: 15px;
   color: var(--text-secondary);
 }
 
@@ -1295,7 +1308,7 @@ body {
 }
 
 .app-uc-label {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1312,13 +1325,13 @@ body {
   flex: 1.2;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .app-arch-label {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -1359,14 +1372,14 @@ body {
 
 .arch-node-name {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .arch-node-sub {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
 }
 
@@ -1446,7 +1459,7 @@ body {
 }
 
 .ocr-doc-name {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
   font-family: var(--font-display);
@@ -1519,7 +1532,7 @@ body {
    SLIDE 6 — MULTIMODAL SEARCH
    ============================================= */
 .slide-search {
-  background: var(--text-primary);
+  background: var(--bg);
 }
 
 .search-bg {
@@ -1563,7 +1576,7 @@ body {
 
 .search-input-text {
   font-size: 19px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   flex: 1;
   font-family: var(--font-display);
 }
@@ -1613,8 +1626,8 @@ body {
 }
 
 .sr-meta {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.3);
+  font-size: 15px;
+  color: var(--text-muted);
 }
 
 .sr-score {
@@ -1632,42 +1645,7 @@ body {
   align-self: flex-start;
 }
 
-/* Dark slide overrides */
-.slide-search .app-badge {
-  color: #FFD580;
-  border-color: rgba(251, 188, 4, 0.3);
-  background: rgba(251, 188, 4, 0.08);
-}
-
-.slide-search .app-title {
-  color: #FFFFFF;
-}
-
-.slide-search .app-def {
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.slide-search .app-pipeline-label {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.slide-search .app-pipe-step {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.slide-search .app-pipe-num {
-  color: #FFD580;
-}
-
-.slide-search .app-pipe-arrow {
-  color: rgba(255, 255, 255, 0.12);
-}
-
-.slide-search .app-uc-label {
-  color: rgba(255, 255, 255, 0.3);
-}
+/* Light slide search styles removed */
 
 /* =============================================
    SLIDE 7 — ASSETS GENERATOR
@@ -1780,7 +1758,7 @@ body {
    SLIDE 8 — BROWSER AGENT
    ============================================= */
 .slide-browser {
-  background: var(--text-primary);
+  background: var(--bg);
 }
 
 .browser-bg {
@@ -1839,7 +1817,7 @@ body {
 .browser-url {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--text-muted);
   flex: 1;
 }
 
@@ -1877,8 +1855,8 @@ body {
 }
 
 .agent-action-text {
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -1912,49 +1890,14 @@ body {
 
 .agent-result-text {
   font-size: 17px;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-secondary);
 }
 
 .agent-result-text strong {
-  color: #81E9A7;
+  color: var(--green);
 }
 
-/* Dark slide overrides */
-.slide-browser .app-badge {
-  color: #FFD580;
-  border-color: rgba(251, 188, 4, 0.3);
-  background: rgba(251, 188, 4, 0.08);
-}
-
-.slide-browser .app-title {
-  color: #FFFFFF;
-}
-
-.slide-browser .app-def {
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.slide-browser .app-pipeline-label {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.slide-browser .app-pipe-step {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.slide-browser .app-pipe-num {
-  color: #FFD580;
-}
-
-.slide-browser .app-pipe-arrow {
-  color: rgba(255, 255, 255, 0.12);
-}
-
-.slide-browser .app-uc-label {
-  color: rgba(255, 255, 255, 0.3);
-}
+/* Light slide browser styles removed */
 
 /* =============================================
    SLIDE 9 — CLOSING REVEAL
