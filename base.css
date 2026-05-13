@@ -904,11 +904,11 @@ html, body {
   color: var(--text-primary);
   line-height: 1.12;
   letter-spacing: -0.03em;
-  max-width: 1000px;
+  max-width: 1600px;
   transition: font-size 0.4s var(--ease-out);
 }
 .reveal-question-dark { color: #ffffff; }
-.reveal-question-sm { font-size: 44px; color: var(--text-secondary); }
+.reveal-question-sm { font-size: 44px; color: var(--text-secondary); white-space: nowrap; }
 .reveal-question-dark.reveal-question-sm { color: rgba(255,255,255,0.45); }
 
 .reveal-answer-block {
