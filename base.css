@@ -848,7 +848,7 @@ html, body {
 .chapter-desc {
   font-size: 20px;
   color: rgba(255,255,255,0.45);
-  max-width: 560px;
+  max-width: 800px;
   line-height: 1.6;
   margin-top: 8px;
 }
