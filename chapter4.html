@@ -82,8 +82,8 @@
                     <span class="cover-f-chip"
                       style="color:#61AFEF; border-color:rgba(97,175,239,0.3); background:rgba(97,175,239,0.08);">Vibe
                       Coding</span>
-                    <span class="cover-f-desc">Natural language as the primary interface. Developers focus on
-                      <strong>intent and architecture</strong> while delegating details to AI agents.</span>
+                    <span class="cover-f-desc">Humans maintain <strong>intent and design</strong> while delegating details to AI
+                    agents.</span>
                     <div class="pillar-analogy">💡 <strong>Analogy:</strong> The Visionary — You define the "soul" and
                       direction; the AI handles the heavy technical lifting.</div>
                   </div>
@@ -91,11 +91,9 @@
                 <div class="cover-f-row">
                   <span class="cover-f-op">+</span>
                   <div class="cover-f-content">
-                    <span class="cover-f-chip"
-                      style="color:#EA4335; border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.08);">Spec-Driven
-                      Dev</span>
-                    <span class="cover-f-desc">Building the blueprint (PRD + Architecture) first with AI. The spec
-                      serves as the <strong>ground truth</strong> for all code generation.</span>
+                    <div class="cover-f-title">Spec-Driven Development</div>
+                    <span class="cover-f-desc">Building the blueprint (PRD + Design) first with AI. The spec
+                    is your ground truth.</span>
                     <div class="pillar-analogy">🏗️ <strong>Analogy:</strong> The Architect — You design the structural
                       logic that keeps the AI's generation grounded in truth.</div>
                   </div>
@@ -245,11 +243,11 @@
                   <line x1="9" y1="9" x2="15" y2="9" />
                 </svg>
               </div>
-              <div class="agenda-name">Architecture</div>
+              <div class="agenda-name">Design</div>
               <div class="agenda-desc"><strong>Spec-Driven:</strong> Define tech stack, schema, and API contracts. Build
                 the technical blueprint.</div>
               <div class="agenda-tag"
-                style="color:#EA4335; border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.05);">🏗️ Arch Doc
+                style="color:#EA4335; border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.05);">🏗️ Design Doc
               </div>
             </div>
 
@@ -364,6 +362,20 @@
                 </div>
               </div>
             </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><code>PRD.md</code> (Structured Requirements)</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Defined Scope (P0/P1/P2 features)</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="vibe-divider"></div>
@@ -435,10 +447,10 @@
       </section>
 
       <!-- ============================================================
-         SLIDE 4 — STAGE 2: ARCHITECTURE & DESIGN
+         SLIDE 4 — STAGE 2: DESIGN
          ============================================================ -->
       <section class="slide slide-vibe" id="slide-5">
-        <div class="slide-label">Stage 02 — Architecture &amp; Design</div>
+        <div class="slide-label">Stage 02 — Design</div>
         <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
           <div class="dot-grid"></div>
         </div>
@@ -449,11 +461,11 @@
             <div class="vibe-col-header">
               <div class="stage-badge"
                 style="color:#EA4335; background:rgba(234,67,53,0.06); border-color:rgba(234,67,53,0.25);">Stage 02 ·
-                Architecture</div>
+                Design</div>
               <h3 class="vibe-stage-title">Design the System with AI</h3>
               <div class="vibe-deliverable"
                 style="color:#EA4335; background:rgba(234,67,53,0.05); border-color:rgba(234,67,53,0.2);">🏗️
-                Deliverable: System Architecture Doc</div>
+                Deliverable: System Design Doc</div>
             </div>
 
             <div class="vibe-goal">
@@ -488,7 +500,21 @@
                 <div class="vibe-todo-item">
                   <span class="vibe-todo-num">2.5</span>
                   <span class="vibe-todo-text"><strong>Human review &amp; finalize</strong> — edit, question AI's
-                    choices, then save as <code>ARCHITECTURE.md</code>.</span>
+                    choices, then save as <code>DESIGN.md</code>.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><code>DESIGN.md</code> (Tech Stack + Schema)</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>API Contract (OpenAPI/JSON Spec)</span>
                 </div>
               </div>
             </div>
@@ -506,7 +532,7 @@
                   <div class="vibe-prompt-dot vibe-prompt-dot-y"></div>
                   <div class="vibe-prompt-dot vibe-prompt-dot-g"></div>
                 </div>
-                <span class="vibe-prompt-chip">ARCHITECTURE PROMPT</span>
+                <span class="vibe-prompt-chip">DESIGN PROMPT</span>
               </div>
               <div class="vibe-prompt-body">
                 <div class="vibe-prompt-line vibe-prompt-comment"># ROLE</div>
@@ -519,7 +545,7 @@
                 <div class="vibe-prompt-line">&nbsp;</div>
                 <div class="vibe-prompt-line vibe-prompt-comment"># TASK</div>
                 <div class="vibe-prompt-line">Design the <span class="vibe-prompt-string">full system
-                    architecture</span>:</div>
+                    design</span>:</div>
                 <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">1.</span> Recommend tech stack (with
                   reasons)</div>
                 <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">2.</span> Database schema + ERD
@@ -556,7 +582,7 @@
             <div class="vibe-ai-bar">
               <span class="vibe-ai-icon">✦</span>
               <span><strong>Pro tip:</strong> Ask AI: <em>"What would break at 10,000 users? What would you simplify if
-                  we only had 2 weeks?"</em> Forces it to prioritize ruthlessly — exactly what a good architect
+                  we only had 2 weeks?"</em> Forces it to prioritize ruthlessly — exactly what a good designer
                 does.</span>
             </div>
           </div>
@@ -587,8 +613,8 @@
             </div>
 
             <div class="vibe-goal">
-              <strong>Goal:</strong> Use Antigravity to build the product one task at a time —
-              always with the full context (PRD + Architecture) loaded, and always checkpointing before moving to the
+              <strong>Goal:</strong> Transform design into functional code in structured layers,
+              always with the full context (PRD + Design) loaded, and always checkpointing before moving to the
               next task.
             </div>
 
@@ -597,7 +623,7 @@
               <div class="vibe-todo-list">
                 <div class="vibe-todo-item">
                   <span class="vibe-todo-num">3.1</span>
-                  <span class="vibe-todo-text"><strong>Load full context first</strong> — paste PRD + Architecture Doc
+                  <span class="vibe-todo-text"><strong>Load full context first</strong> — paste PRD + Design Doc
                     into the AI before writing any code.</span>
                 </div>
                 <div class="vibe-todo-item">
@@ -622,6 +648,20 @@
                 </div>
               </div>
             </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Functional Codebase (Frontend + Backend)</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Integrated AI Reasoning Pipeline</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="vibe-divider"></div>
@@ -643,8 +683,8 @@
                 <div class="vibe-prompt-line">&nbsp;</div>
                 <div class="vibe-prompt-line"><span class="vibe-prompt-key">[PRD]</span> <span
                     class="vibe-prompt-val">{full PRD.md}</span></div>
-                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[ARCH]</span> <span
-                    class="vibe-prompt-val">{full ARCHITECTURE.md}</span></div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[DESIGN]</span> <span
+                    class="vibe-prompt-val">{full DESIGN.md}</span></div>
                 <div class="vibe-prompt-line"><span class="vibe-prompt-key">[CODEBASE]</span> <span
                     class="vibe-prompt-val">{current file tree}</span></div>
                 <div class="vibe-prompt-line">&nbsp;</div>
@@ -655,8 +695,8 @@
                 <div class="vibe-prompt-line vibe-prompt-comment"># RULES</div>
                 <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Only implement what's in this
                   task.</div>
-                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Follow the architecture
-                  exactly.</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">-</span> Follow the design
+                    system strictly.</div>
                 <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Tell me when done + what to
                   test next.</div>
               </div>
@@ -670,7 +710,7 @@
                   PRD.md</span>
                 <span class="vibe-chip"
                   style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">🏗️
-                  ARCHITECTURE.md</span>
+                  DESIGN.md</span>
                 <span class="vibe-chip"
                   style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">📁 File
                   tree</span>
@@ -747,6 +787,20 @@
                   <span class="vibe-todo-num">4.5</span>
                   <span class="vibe-todo-text"><strong>UAT checklist:</strong> Ask AI to generate a user acceptance
                     testing checklist from PRD acceptance criteria.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><code>tests/</code> (Unit & E2E Test Suite)</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span><code>bug_report.md</code> (Verification Log)</span>
                 </div>
               </div>
             </div>
@@ -876,6 +930,20 @@
                 </div>
               </div>
             </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Production-Ready Application</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Final Performance & Security Sign-off</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="vibe-divider"></div>
@@ -972,7 +1040,7 @@
               <div class="bp-card-num">02</div>
               <div>
                 <div class="bp-card-title">Load full context every session</div>
-                <div class="bp-card-desc">Start every new session by pasting your PRD, architecture
+                <div class="bp-card-desc">Start every new session by pasting your PRD, design
                   doc, and current file tree before any task.</div>
               </div>
             </div>
@@ -997,7 +1065,7 @@
               <div class="bp-card-num">05</div>
               <div>
                 <div class="bp-card-title">Store prompts in <code>/docs</code> or <code>/ai</code></div>
-                <div class="bp-card-desc">Your PRD, architecture doc, and key prompts are source-of-truth documents.
+                <div class="bp-card-desc">Your PRD, design doc, and key prompts are source-of-truth documents.
                   Commit them to the repo alongside the code.</div>
               </div>
             </div>
